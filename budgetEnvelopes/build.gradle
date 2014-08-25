@@ -1,0 +1,38 @@
+apply plugin: 'android'
+
+android {
+    signingConfigs {
+    }
+    compileSdkVersion 19
+    buildToolsVersion '20.0.0'
+    defaultConfig {
+        applicationId 'com.marcuscalidus.budgetenvelopes'
+        minSdkVersion 14
+        targetSdkVersion 19
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile project(':colorPickerView')
+    compile 'com.google.android.gms:play-services:5.0.89'
+    compile files('libs/multiwindow-v1.0.2.jar')
+    compile files('libs/sdk-v1.0.0.jar')
+    compile 'com.android.support:support-v13:20.0.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.code.findbugs:jsr305:3.0.0'
+    compile 'com.google.http-client:google-http-client-gson:1.19.0'
+    compile 'com.google.http-client:google-http-client:1.19.0'
+    compile 'com.google.http-client:google-http-client-android:1.19.0'
+    compile 'com.google.api-client:google-api-client:1.19.0'
+    compile 'com.google.api-client:google-api-client-android:1.19.0'
+    compile 'com.google.oauth-client:google-oauth-client:1.19.0'
+    compile 'com.google.apis:google-api-services-drive:v2-rev139-1.19.0'
+}

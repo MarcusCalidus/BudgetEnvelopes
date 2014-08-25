@@ -1,0 +1,236 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_tiled">
+
+    <RelativeLayout
+        android:id="@+id/toolbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true" 
+        android:background="@color/darkToolbar" >
+
+        <ImageView
+            android:id="@+id/imageSettings"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="0dp"
+            android:contentDescription="@string/action_settings"
+            android:scaleType="fitCenter"
+            android:src="@drawable/gear" />
+        
+ 		<ImageView
+            android:id="@+id/imageSync"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imageSettings"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:contentDescription="@string/action_backup_sync"
+            android:scaleType="fitCenter"
+            android:src="@drawable/google_drive_original_dark_gray" />
+        
+        <ImageView
+            android:id="@+id/imageEnvelopeSettings"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="130dp"
+            android:contentDescription="@string/action_manage_envelopes"
+            android:layout_toRightOf="@+id/imageSync"
+            android:scaleType="fitCenter"
+            android:src="@drawable/envelope_open_gear" />
+
+    </RelativeLayout>
+    
+        <LinearLayout
+            android:id="@+id/reviewBox"
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/toolbar_layout"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/lowered_dark"
+            android:orientation="vertical"
+            android:paddingTop="10dp" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:drawableLeft="@drawable/paypal2_clock_light"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="@string/title_pending"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/primary_text_dark" />
+
+            <ListView
+                android:id="@+id/list_view_transactions_LV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/list_item_transaction_pending" >
+
+            </ListView>
+
+    </LinearLayout>
+    
+
+    <fragment
+        android:id="@+id/list_view_envelopes"
+        android:name="com.marcuscalidus.budgetenvelopes.envelopes.EnvelopeListFragment"
+        android:layout_width="260dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/toolbar_layout"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        tools:layout="@layout/list_item_envelope" />
+
+    <RelativeLayout
+        android:id="@+id/list_view_transactions"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/toolbar_layout"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/transactions_background"
+        android:focusable="true"
+        android:orientation="vertical" >
+            
+                <android.support.v4.view.ViewPager
+            android:id="@+id/transactionsViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imgVGradient2"
+            android:layout_below="@+id/imgVGradient1"
+            android:background="#FFF0F0F0"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="4dp"
+            android:visibility="visible" >
+
+            <android.support.v4.view.PagerTabStrip
+                android:id="@+id/pager_tab_strip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:background="@drawable/gradient_tool_bar"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:textColor="#fff" >
+
+            </android.support.v4.view.PagerTabStrip>
+        </android.support.v4.view.ViewPager>
+
+        <ImageView
+            android:id="@+id/imgVGradient1"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/toolbarTransactions"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/gradient_transparent_white"
+            android:contentDescription="@null" />
+
+        <ImageView
+            android:id="@+id/imgVGradient2"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:contentDescription="@null"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/gradient_white_transparent" />
+
+        <TextView
+            android:id="@+id/textViewEnvelopeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:gravity="center_vertical"
+            android:shadowColor="#FA000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="@string/debug_lorem_ipsum"
+            android:textColor="#FAFFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+
+        <RelativeLayout
+            android:id="@+id/toolbarTransactions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="25dp" >
+
+            <ImageButton
+                android:id="@+id/btnDistribute"
+                style="@android:style/Widget.Button.Small"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/button_circle"
+                android:contentDescription="@string/desc_distribute"
+                android:src="@drawable/tax" />
+
+            <ImageButton
+                android:id="@+id/btnTransfer"
+                style="@android:style/Widget.Button.Small"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_circle"
+                android:contentDescription="@string/desc_transfer"
+                android:src="@drawable/transfer" />
+
+            <ImageButton
+                android:id="@+id/btnWithdraw"
+                style="@android:style/Widget.Button.Small"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toLeftOf="@+id/btnTransfer"
+                android:background="@drawable/button_circle"
+                android:contentDescription="@string/desc_withdraw"
+                android:src="@drawable/withdrawal" />
+
+            <ImageButton
+                android:id="@+id/btnDeposit"
+                style="@android:style/Widget.Button.Small"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/btnWithdraw"
+                android:background="@drawable/button_circle"
+                android:contentDescription="@string/desc_deposit"
+                android:src="@drawable/deposit" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+    
+   
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="multiwindow-v1.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/budgetEnvelopes/libs/multiwindow-v1.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:focusable="false"
+    android:focusableInTouchMode="false" >
+
+    <ImageView
+        android:id="@+id/imageTab"
+        android:layout_width="260dp"
+        android:layout_height="114dp"
+        android:adjustViewBounds="false"
+        android:baselineAlignBottom="false"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:scaleType="fitStart"
+        android:src="@drawable/envelope" />
+
+    <ImageView
+        android:id="@+id/imageViewStamp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignRight="@id/imageTab"
+        android:layout_alignTop="@id/imageTab"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@null"
+        android:src="@drawable/stamp" />
+
+    <TextView
+        android:id="@+id/textViewBudget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageTab"
+        android:layout_alignTop="@+id/imageTab"
+        android:layout_below="@+id/label"
+        android:layout_marginRight="142dp"
+        android:layout_marginTop="60dp"
+        android:gravity="right"
+        android:padding="3dp"
+        android:shadowColor="#FA000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:text="@string/debug_amount"
+        android:textColor="#FAFFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:shadowColor="#FA000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:text="@string/debug_lorem_ipsum"
+        android:textColor="#FAFFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/textViewPlannedExpenses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageTab"
+        android:layout_alignRight="@+id/imageTab"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="15dp"
+        android:shadowColor="#FA000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:text="@string/debug_lorem_ipsum"
+        android:textColor="#FAFFFFFF"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/imageOverdrawn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignRight="@id/imageTab"
+        android:layout_alignTop="@id/imageTab"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:alpha="0.95"
+        android:background="@drawable/overdrawn"
+        android:contentDescription="@null"
+        android:gravity="center_vertical|center_horizontal"
+        android:rotation="20"
+        android:text="@string/overdrawn"
+        android:textColor="@color/mycolor"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
+
+</RelativeLayout>

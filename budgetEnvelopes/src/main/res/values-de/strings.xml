@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Budget Envelopes</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_manage_envelopes">Umschläge bearbeiten</string>
+    <string name="action_backup_sync">Synchronisieren/Sichern</string>
+    <string name="dummy">dummy</string>
+    <string name="setup_envelope">Umschlag bearbeiten</string>
+    <string name="delete_envelope">Umschlag löschen</string>
+    <string name="delete_envelope_question">Möchtest du diesen Umschlag wirklich löschen?</string>
+    <string name="envelopelabel">Bezeichnung</string>
+    <string name="chooseColor">Wähle Farbe und Marke</string>
+    <string name="done">Fertig</string>
+    <string name="execute">Ausführen</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="add_envelope">Umschlag hinzufügen</string>
+    <string name="add_space">Zwischenraum hinzufügen</string>
+    <string name="new_envelope_title">neuer Umschlag</string>
+    <string name="pick_a_color">Wähle eine Farbe!</string>
+    <string name="deposit_to">Einzahlung nach</string>
+    <string name="withdraw_from">Entnahme von</string>
+    <string name="transfer_from">Umbuchung von</string>
+    <string name="expense_label">Ausgabe</string>
+    <string name="expense_amount">Betrag</string>
+    <string name="expense_frequency">Häufigkeit (Monate)</string>
+    <string name="desc_expense_frequency">Intervall der Ausgabe in Monaten</string>
+    <string name="desc_expense_amount">Wieviel muss bezahlt werden?</string>
+    <string name="desc_expense_name">Wofür ist die Ausgabe?</string>
+    <string name="desc_expense_delete">Diese Ausgabe löschen</string>
+    <string name="desc_expense_add">Neue Ausgabe hinzufügen</string>
+    <string name="desc_envelope_color">Welche Farbe soll der Umschlag haben?</string>
+    <string name="desc_envelope_name">Gib den Umschlag einen netten Namen</string>
+    <string name="desc_envelope_delete">Lösche diesen Umschlag</string>
+    <string name="desc_envelope_stamp">Marke zum verzieren des Umschlages</string>
+    <string name="desc_envelope_edit">Bearbeite den Umschlag</string>
+    <string name="desc_cancel">Änderungen verwerfen</string>
+    <string name="desc_done">Änderungen speichern</string>
+    <string name="desc_envelope_add_space">Füge einen Zwischenraum ein</string>
+    <string name="desc_envelope_add">Füge einen neuen Umschlag der Liste hinzu</string>
+    <string name="desc_deposit">Zahle in Umschlag ein</string>
+    <string name="desc_withdraw">Entnimm dem Umschlag</string>
+    <string name="desc_transfer">Übertrage von einem in den anderen Umschlag</string>
+    <string name="desc_distribute">Verteile auf Umschläge</string>
+    <string name="edit_transaction">Buchung bearbeiten</string>
+    <string name="cancel_transaction">Buchung entfernen</string>
+    <string name="cancel_transaction_question">Möchtest du die Buchung wirklich entfernen?</string>
+    <string name="desc_transaction_date">Datum der Buchung</string>
+    <string name="date">Datum</string>
+    <string name="description">Beschreibung</string>
+    <string name="amount">Betrag</string>
+    <string name="pending">Anstehend</string>
+    <string name="title_activity_sync">Synchronisieren und Sichern</string>
+    <string name="title_pending">Anstehende Buchungen</string>
+    <string name="title_log">Log Nachrichten</string>
+    <string name="error_title">Fehler</string>
+    <string name="error_invalid_amount">Ungültiger Buchungsbetrag\nGib eine Zahl größer 0 ein!</string>    
+    <string name="error_invalid_target_envelope">Ungültiger Zielumschlag\nWähle einen anderen Umschlag als Ziel für diese Buchung!</string>
+    <string name="desc_envelope_move">Verschiebe den Umschlag nach oben oder unten</string>
+    <string name="targetEnvelope">Buche nach</string>
+    <string name="undistributed">&lt;unverteilt&gt;</string>
+    <string name="msg_error_contents_handling">Konnte Dateiinhalt nicht verarbeiten</string>
+    <string name="msg_error_copy_file">Fehler während des Kopierens der Datei</string>
+    <string name="msg_error_create_remote_file">Remote Datei konnte nicht erzeugt werden</string>
+    <string name="msg_error_general">Ein Fehler ist aufgetreten - Siehe Log</string>
+    <string name="msg_error_no_create_remote_folder">Verzeichnis konnte in Google Drive nicht angelegt werden</string>
+    <string name="msg_error_request_sync_gdrive">Google Drive konnte nicht synchronisiert werden</string>
+    <string name="msg_error_upload_file">Fehler während des Dateiuploads</string>
+    <string name="msg_error_db_broken">Datenbankdatei ist beschädigt</string>
+    <string name="msg_copied_file">Datei erfolgreich kopiert</string>
+    <string name="msg_downloaded_file">Datei erfolgreich heruntergeladen</string>
+    <string name="msg_no_local_sync_data">Keine lokalen Daten zum Synchronisieren vorhanden</string>
+    <string name="msg_no_file_download">Keine Datei zum herunterladen vorhanden</string>
+    <string name="msg_uploaded_file">Datei erfolgreich hochgeladen</string>
+    <string name="msg_using_account">benutze Konto</string>
+    <string name="msg_local_data_update_count">Zahl der aktualisierten Datensätze</string>
+    <string name="msg_sync_success">Datenbanksynchronisierung erfolgreich</string>
+    <string name="msg_ready_go_back">Alles fertig - sie können jetzt zurückkehren.</string>
+    <string name="msg_attempt_file_download">Versuche Dateidownload</string>
+    <string name="msg_attempt_file_upload">Versuche Dateiupload</string>
+    <string name="msg_attempt_db_cleanup">Bereinige Datenbank</string>
+    <string name="msg_attempt_file_cleanup">Bereinige Dateisystem</string>
+    <string name="msg_attempt_apply_local_data">Wende lokale Änderungen an</string>    
+    <string name="msg_attempt_deleting_outdated_backups">Lösche veraltete Sicherungsdateien, bis auf %d.</string>
+    <string name="msg_file_delete_success">%s gelöscht</string>
+    <string name="msg_file_delete_fail">Löschen von %s FEHLGESCHLAGEN!</string>
+    
+    <string name="title_activity_settings">Einstellungen</string>
+
+    <string name="pref_category_general">Allgemein</string>
+    <string name="pref_title_currency">Währungssymbol</string>    
+    <string name="pref_summ_currency">aktuelles Währungssymbol: </string>
+    
+    <string name="pref_category_sync">Synchronisierung &amp; Sicherung</string>
+    <string name="pref_title_google_account">Google Konto</string>    
+    <string name="pref_summ_google_account">Wähle welches Google Drive für Synchronisierung und Sicherung verwendet wird</string>
+    <string name="pref_title_backup_count">Anzahl Sicherungsdateien</string>    
+    <string name="pref_summ_backup_count">Wieviele Sicherungsdateien sollen vorgehalten werden?</string>
+    
+    <string name="pref_category_help">Budget Envelopes Hilfe</string>
+    <string name="pref_title_manual">Anleitung</string>
+    <string name="pref_summ_manual">Eine kleine Starthilfe.</string>
+    <string name="pref_link_manual">https://sites.google.com/site/budgetenvelopesapp/home/manual</string>
+    <string name="pref_title_privacy">Datenschutzerklärung</string>
+    <string name="pref_summ_privacy">Was macht die App mit meinen Daten?</string>
+    <string name="pref_link_privacy">https://sites.google.com/site/budgetenvelopesapp/home/manual/privacy-policy</string>
+    
+    <string name="desc_transaction_to_folder">In welchen Umschlag soll der Betrag umgebucht werden</string>    
+    <string name="desc_transaction_pending">Setze diesen Wert auf "Ein", wenn das Geld ausgegeben wurde, das Bankkonto aber noch nicht belastet ist</string>    
+    <string name="overdrawn">über zogen</string>
+    <string name="app_title">Mein Umschlag-Budget</string>    
+    <string name="total_credit">Guthaben gesamt</string>    
+    <string name="planned_exp">gepl. Ausg / Monat</string>    
+    <string name="exp_month">Ausgaben</string>    
+    <string name="income_month">Einnahmen</string>  
+
+	<string name="cancel_operation">Vorgang abbrechen</string>
+    <string name="cancel_operation_question">Möchtest du den laufenden Vorgang wirklich abbrechen?</string>
+    <string name="operation_cancelled">Vorgang abgebrochen</string>
+        
+    <string name="desc_no_backups">In deinem Google Drive gibt es zur Zeit keine Sicherungsdateien</string>
+    <string name="title_restore">Aus Sicherung wiederherstellen</string>
+    <string name="desc_restore">Wähle eine Sicherungsdatei, aus dem die Daten wiederhergestellt werden sollen.\nACHTUNG: alle seit dieser Sicherung eingegebenen Daten sind verloren\nFühre die Wiederherstellung zur Sicherheit auf allen synchronisierten Geräten aus, oder setze deren APP Einstellungen zurück und führe die Synchronisierung aus!</string>
+	<string name="msg_error_no_selection">Du hast nichts ausgewählt.</string>    
+	<string name="sync_backup">Synchronisieren &amp; Sichern</string>
+    <string name="restore">Wiederherstellen</string>
+    <string name="desc_sync_backup">Synchronisiert die lokalen Daten mit den auf Google Drive gehaltenen Daten und legt eine Sicherungsdatei an</string>
+    <string name="desc_restorebtn">Daten aus einer Sicherung auf Google Drive wiederherstellen</string>
+    <string name="msg_network_lost">Netzwerkverbindung verloren - Google API getrennt</string>
+    <string name="msg_service_disconnected">Google API getrennt</string>
+        
+    <string name="distribute">Verteilen</string>    
+    <string name="desc_dlg_distribute">Wie soll das Geld auf die Umschläge verteilt werden?\n\nProportional: Das Geld wird auf die Umschläge verteilt gemäß deren Anteil am Gesamtbudget.\n\nGenauer Betrag: Es wir nur so viel in die Umschläge verteilt, wie die Ausgaben erfordern. ACHTUNG: Wenn der Gesamtbetrag nicht ausreicht, werden nicht alle Umschläge gefüllt!</string>
+    <string name="option_pro_rata">Proportional</string>
+    <string name="option_exact_amount">Genauer Betrag</string>
+    <string name="transaction_text_budget">Budget</string>
+    
+</resources>

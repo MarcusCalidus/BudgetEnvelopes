@@ -1,0 +1,41 @@
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <PreferenceCategory
+            android:title="@string/pref_category_general">
+
+        <EditTextPreference
+                android:key="00000000-0000-0000-0000-000000000002"
+                android:title="@string/pref_title_currency"
+                android:summary="@string/pref_summ_currency"
+                android:dialogTitle="@string/pref_title_currency" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+            android:title="@string/pref_category_sync">
+            
+        <ListPreference 
+            android:key="00000000-0000-0000-0000-000000000001"
+            android:title="@string/pref_title_google_account"
+            android:summary="@string/pref_summ_google_account"/>
+        
+        <EditTextPreference
+            android:key="00000000-0000-0000-0000-000000000003"
+            android:title="@string/pref_title_backup_count"
+            android:summary="@string/pref_summ_backup_count"
+            android:inputType="number" />
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+            android:title="@string/pref_category_help">
+        <Preference android:title="@string/pref_title_manual"
+                android:key="manual"
+                android:summary="@string/pref_summ_manual" />
+        <Preference android:title="@string/pref_title_privacy"
+                android:key="privacy"
+                android:summary="@string/pref_summ_privacy" />
+    </PreferenceCategory>
+    
+
+
+</PreferenceScreen>

@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".ManageEnvelopesActivity" >
+
+    <com.slezica.tools.widget.RearrangeableListView
+        android:id="@+id/rearrangeableListView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleBar"
+        android:clickable="true"
+        android:drawSelectorOnTop="true"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="0dp" >
+
+    </com.slezica.tools.widget.RearrangeableListView>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@id/titleBar"
+        android:contentDescription="@null"
+        android:src="@drawable/shadow_horizontal" />
+
+    <RelativeLayout
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_leather"
+        android:paddingBottom="4dp" >
+
+        <RelativeLayout
+            android:id="@+id/innerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="2dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp" >
+
+            <LinearLayout
+                android:id="@+id/toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleText"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/buttonAddEnvelope"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/button_circle"
+                    android:contentDescription="@string/desc_envelope_add"
+                    android:scaleType="center"
+                    android:src="@drawable/envelope2_add"
+                    android:text="@string/add_envelope" />
+
+                <ImageButton
+                    android:id="@+id/buttonAddSpace"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/button_circle"
+                    android:contentDescription="@string/desc_envelope_add_space"
+                    android:scaleType="center"
+                    android:src="@drawable/space_evenly_vertical_add"
+                    android:text="@string/add_space" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonDone"
+                style="@android:style/Widget.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:text="@string/done" />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toLeftOf="@id/buttonDone"
+                android:gravity="center_vertical"
+                android:shadowColor="#FA000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
+                android:text="@string/action_manage_envelopes"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@android:color/white"
+                android:textColorLink="?android:attr/colorForeground"
+                android:textStyle="bold|italic" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/innerTitle"
+            android:contentDescription="@null"
+            android:background="@drawable/leather_stiches_repeat" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

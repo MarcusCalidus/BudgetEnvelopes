@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ExtraTranslation" severity="ignore" />
+    <issue id="FieldGetter" severity="warning" />
+    <issue id="MissingTranslation" severity="informational" />
+    <issue id="UnusedIds" severity="warning" />
+</lint>

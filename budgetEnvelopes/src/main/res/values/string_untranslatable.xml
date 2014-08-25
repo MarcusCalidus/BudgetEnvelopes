@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="debug_amount" translatable="false">1234,56 €</string>
+    <string name="debug_date_day" translatable="false">01.</string>    
+    <string name="debug_date_daymonth" translatable="false">01.01.</string>
+	<string name="debug_lorem_ipsum" translatable="false">Lorem ipsum dolor sit amet</string>
+	<string name="three_dots" translatable="false">&#8230;</string>    
+</resources>
+    

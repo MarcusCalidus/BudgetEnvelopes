@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <ImageButton
+        android:id="@+id/buttonDelete"
+        style="@android:style/Widget.Button.Small"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:layout_centerVertical="true"
+        android:baselineAlignBottom="true"
+        android:contentDescription="@string/desc_expense_delete"
+        android:scaleType="fitCenter"
+        android:src="@drawable/payment_delete" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_centerVertical="true"
+        android:baselineAligned="false"
+        android:layout_toRightOf="@+id/buttonDelete"
+        android:gravity="left"
+        android:measureWithLargestChild="true"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:labelFor="@+id/textEditLabel"
+                android:text="@string/expense_label"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/textEditLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/desc_expense_name"
+                android:hint="@string/expense_label"
+                android:inputType="text"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:labelFor="@+id/textEditAmount"
+                android:text="@string/expense_amount"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/textEditAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/desc_expense_amount"
+                android:gravity="right"
+                android:hint="@string/expense_amount"
+                android:inputType="numberDecimal"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:labelFor="@+id/textEditTime"
+                android:text="@string/expense_frequency"
+                android:textAppearance="?android:attr/textAppearanceMediumInverse"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/textEditTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/desc_expense_frequency"
+                android:gravity="right"
+                android:hint="@string/expense_frequency"
+                android:inputType="number"
+                tools:ignore="ContentDescription" >
+
+            </EditText>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

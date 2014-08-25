@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="93"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Tooltip.svg"
+   inkscape:export-filename="/home/mawarm/workspace/BudgetFolders/ownStuff/Tooltip.png"
+   inkscape:export-xdpi="101"
+   inkscape:export-ydpi="101">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3770">
+      <stop
+         style="stop-color:#ababab;stop-opacity:0.79831934;"
+         offset="0"
+         id="stop3772" />
+      <stop
+         style="stop-color:#fbfbfb;stop-opacity:0.72689074;"
+         offset="1"
+         id="stop3774" />
+    </linearGradient>
+    <filter
+       id="filter3830"
+       inkscape:label="Drop Shadow"
+       color-interpolation-filters="sRGB">
+      <feFlood
+         id="feFlood3832"
+         flood-opacity="0.496"
+         flood-color="rgb(0,0,0)"
+         result="flood" />
+      <feComposite
+         id="feComposite3834"
+         in2="SourceGraphic"
+         in="flood"
+         operator="in"
+         result="composite1" />
+      <feGaussianBlur
+         id="feGaussianBlur3836"
+         stdDeviation="3"
+         result="blur" />
+      <feOffset
+         id="feOffset3838"
+         dx="2"
+         dy="2"
+         result="offset" />
+      <feComposite
+         id="feComposite3840"
+         in2="offset"
+         in="SourceGraphic"
+         operator="over"
+         result="composite2" />
+    </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3770"
+       id="linearGradient3776"
+       x1="79.64817"
+       y1="73.239792"
+       x2="79.943085"
+       y2="1.7326646"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="154.83547"
+     inkscape:cy="138.35975"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       orientation="0,1"
+       position="288.30357,897.49999"
+       id="guide3000" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-959.36218)">
+    <path
+       style="fill:url(#linearGradient3776);fill-opacity:1;stroke:#666666;stroke-opacity:1;filter:url(#filter3830)"
+       d="m 5.3398034,1.2831082 c 56.1238926,0 112.2477866,0 168.3716766,0 2.0986,0 3.78808,1.68948 3.78808,3.78807 l 0,65.7835298 c 0,2.09859 -1.68948,3.78807 -3.78808,3.78807 l -168.2443166,0 c -2.0986,0 -3.78808,-1.68948 -3.78808,-3.78807 l 0,-66.0001698 c -0.31196,-2.02896 1.1293,-3.76129 3.66072,-3.57143 z"
+       id="rect2985"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccssssscc"
+       inkscape:export-filename="/home/mawarm/workspace/BudgetFolders/res/drawable-hdpi/tooltip.png"
+       inkscape:export-xdpi="101"
+       inkscape:export-ydpi="101"
+       transform="matrix(1.0594949,0,0,1.0594949,3.8912283,964.78398)" />
+  </g>
+</svg>

@@ -1,6 +1,8 @@
+/gradle.properties
 /build
 /budgetEnvelopes/build
 /colorPickerView/build
 /settings.gradle
 /local.properties
 /.gradle
+/.idea/workspace.xml

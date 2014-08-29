@@ -2,10 +2,15 @@ package com.marcuscalidus.budgetenvelopes.dataobjects;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.SparseArray;
+import android.app.Activity;
 
+import com.marcuscalidus.budgetenvelopes.BudgetEnvelopes;
 import com.marcuscalidus.budgetenvelopes.db.DBMain;
 import com.marcuscalidus.budgetenvelopes.transactions.TransactionsMonth;
 
@@ -28,20 +33,23 @@ public class TransactionDataObject extends BaseDataObject {
 	public static String FIELDNAME_TIMESTAMP = "TIMESTAMP";
 	public static String FIELDNAME_FROM_ENVELOPE = "FROM_ENVELOPE";
 	public static String FIELDNAME_TO_ENVELOPE = "TO_ENVELOPE";
-	public static String FIELDNAME_PENDING = "PENDING";
-	
-	private String _Text;
+    public static String FIELDNAME_PENDING = "PENDING";
+    public static String FIELDNAME_ATTACHMENT = "ATTACHMENT";
+
+    private String _Text;
 	private Float _Amount;
 	private Calendar _Timestamp;
 	private UUID _FromEnvelope;
 	private UUID _ToEnvelope;
 	private boolean _Pending;
+    private String _Attachment;
 	
 	@Override
 	protected void initializeFromCursor(Cursor c) {
-		_Text = c.getString(c.getColumnIndex(FIELDNAME_TEXT));
+        _Text = c.getString(c.getColumnIndex(FIELDNAME_TEXT));
 		_Amount = c.getFloat(c.getColumnIndex(FIELDNAME_AMOUNT));
 		_Pending =  c.getInt(c.getColumnIndex(FIELDNAME_PENDING)) != 0;
+        _Attachment = c.getString(c.getColumnIndex(FIELDNAME_ATTACHMENT));
 		_FromEnvelope = castBlobAsUUID(c.getBlob(c.getColumnIndex(FIELDNAME_FROM_ENVELOPE)));
 		_ToEnvelope = castBlobAsUUID(c.getBlob(c.getColumnIndex(FIELDNAME_TO_ENVELOPE)));
 		_Timestamp = Calendar.getInstance();
@@ -55,7 +63,7 @@ public class TransactionDataObject extends BaseDataObject {
 
 	@Override
 	protected String[] getFieldNames() {
-		return new String[] {FIELDNAME_AMOUNT, FIELDNAME_TEXT, FIELDNAME_FROM_ENVELOPE, FIELDNAME_TO_ENVELOPE, FIELDNAME_TIMESTAMP, FIELDNAME_PENDING};
+		return new String[] {FIELDNAME_AMOUNT, FIELDNAME_TEXT, FIELDNAME_FROM_ENVELOPE, FIELDNAME_TO_ENVELOPE, FIELDNAME_TIMESTAMP, FIELDNAME_PENDING, FIELDNAME_ATTACHMENT};
 	}
 
 	@Override
@@ -67,6 +75,7 @@ public class TransactionDataObject extends BaseDataObject {
 		vals.put(FIELDNAME_PENDING, _Pending);
 		vals.put(FIELDNAME_TEXT, _Text);
 		vals.put(FIELDNAME_TIMESTAMP, _Timestamp.getTimeInMillis());
+        vals.put(FIELDNAME_ATTACHMENT, _Attachment);
 		return vals;
 	}
 
@@ -120,6 +129,12 @@ public class TransactionDataObject extends BaseDataObject {
 	public void setPending(boolean _Pending) {
 		this._Pending = _Pending;
 	}
+
+    public boolean hasAttachment() { return _Attachment != null; }
+
+    public void setAttachment(String fileName) { this._Attachment = fileName; }
+
+    public String getAttachment() { return _Attachment; }
 
 	public static Date getMinimumDate(SQLiteDatabase db) {
 		String selectQuery = "SELECT min("+FIELDNAME_TIMESTAMP+") FROM " + TABLENAME +

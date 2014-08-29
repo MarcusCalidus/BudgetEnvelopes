@@ -29,6 +29,17 @@
         android:layout_marginLeft="3dp"
         android:gravity="left|center_vertical" >
 
+        <ImageView
+            android:id="@+id/imageClip"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:alpha="0.5"
+            android:contentDescription="@null"
+            android:src="@drawable/clip_dark"
+            android:layout_toLeftOf="@+id/imagePending"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"/>
+
         <TextView
             android:id="@+id/textDescription"
             android:layout_width="match_parent"
@@ -64,6 +75,7 @@
             android:text="@string/debug_amount"
             android:textColor="@android:color/secondary_text_dark"
             android:textStyle="bold" />
+
     </RelativeLayout>
 
 </LinearLayout>

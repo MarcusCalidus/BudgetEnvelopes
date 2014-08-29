@@ -10,7 +10,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="false"
         android:background="@drawable/toolbar_leather"
-        android:paddingBottom="4dp" >
+        android:paddingBottom="4dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentLeft="false">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -21,15 +24,18 @@
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/innerTitle"
             android:background="@drawable/leather_stiches_repeat"
-            android:contentDescription="@null" />
+            android:contentDescription="@null"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true" />
 
         <RelativeLayout
             android:id="@+id/innerTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="2dp"
-            android:paddingRight="10dp"
-            android:paddingTop="2dp" >
+            android:paddingRight="5dp"
+            android:paddingTop="2dp"
+            android:paddingLeft="5dp">
 
             <Button
                 android:id="@+id/buttonDone"
@@ -38,16 +44,15 @@
                 android:layout_height="40dp"
                 android:layout_alignParentRight="true"
                 android:contentDescription="@string/desc_done"
-                android:text="@string/done" />
+                android:text="@string/done"
+                android:layout_alignParentEnd="false" />
 
             <TextView
                 android:id="@+id/titleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignStart="@id/buttonDone"
-                android:layout_marginLeft="10dp"
-                android:layout_toLeftOf="@+id/buttonDone"
+                android:layout_alignParentLeft="false"
+                android:layout_marginLeft="5dp"
                 android:gravity="center_vertical"
                 android:shadowColor="#FA000000"
                 android:shadowDx="1"
@@ -57,7 +62,27 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white"
                 android:textColorLink="?android:attr/colorForeground"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"
+                android:layout_toStartOf="@+id/btnAttachment"
+                android:layout_toLeftOf="@+id/btnAttachment"
+                android:layout_alignParentStart="true"
+                android:layout_marginRight="5dp" />
+
+            <ImageButton
+                style="@android:style/Widget.Button.Small"
+                android:id="@+id/btnAttachment"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/button_circle"
+                android:scaleType="center"
+                android:src="@drawable/clip_star"
+                android:text="@string/add_envelope"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/buttonDone"
+                android:layout_toStartOf="@+id/buttonDone"
+                android:focusableInTouchMode="false"
+                android:clickable="false"
+                android:contentDescription="@string/manage_attachment" />
 
         </RelativeLayout>
 

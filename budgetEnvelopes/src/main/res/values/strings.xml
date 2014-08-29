@@ -134,5 +134,10 @@
     <string name="option_pro_rata">Proportionally</string>
     <string name="option_exact_amount">Exact amount</string>
     <string name="transaction_text_budget">Budget</string>
+
+    <string name="view_attachment">show image</string>
+    <string name="delete_attachment">delete image</string>
+    <string name="update_attachment">new image</string>
+    <string name="manage_attachment">manage transaction image attachment</string>
   
 </resources>

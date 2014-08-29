@@ -104,13 +104,22 @@ public class TransactionListArrayAdapter extends
 		txt.setText(sb.toString());
 		
 		ImageView img = (ImageView) v.findViewById(R.id.imagePending);
-		if (img != null) {
-			if (getItem(position).isPending()) {
-				img.setVisibility(View.VISIBLE);
-			} else {
-				img.setVisibility(View.GONE);
-			}
-		}
+        if (img != null) {
+            if (getItem(position).isPending()) {
+                img.setVisibility(View.VISIBLE);
+            } else {
+                img.setVisibility(View.GONE);
+            }
+        }
+
+        img = (ImageView) v.findViewById(R.id.imageClip);
+        if (img != null) {
+            if (getItem(position).hasAttachment()) {
+                img.setVisibility(View.VISIBLE);
+            } else {
+                img.setVisibility(View.INVISIBLE);
+            }
+        }
 	}
 	
 	@Override

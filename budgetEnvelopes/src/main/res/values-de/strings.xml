@@ -133,5 +133,9 @@
     <string name="option_pro_rata">Proportional</string>
     <string name="option_exact_amount">Genauer Betrag</string>
     <string name="transaction_text_budget">Budget</string>
-    
+
+    <string name="view_attachment">Bild anzeigen</string>
+    <string name="delete_attachment">Bild löschen</string>
+    <string name="update_attachment">neues Bild anhängen</string>
+    <string name="manage_attachment">Bildanhang verwalten</string>
 </resources>

@@ -1,14 +1,22 @@
 package com.marcuscalidus.budgetenvelopes.transactions;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.DialogFragment;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelUuid;
+import android.os.Vibrator;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -18,10 +26,13 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.marcuscalidus.budgetenvelopes.BudgetEnvelopes;
 import com.marcuscalidus.budgetenvelopes.R;
@@ -30,6 +41,8 @@ import com.marcuscalidus.budgetenvelopes.dataobjects.TransactionDataObject;
 import com.marcuscalidus.budgetenvelopes.db.DBMain;
 import com.marcuscalidus.budgetenvelopes.widgets.TooltipHoverListener;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -40,9 +53,12 @@ import java.util.UUID;
 
 public class TransactionDialogFragment extends DialogFragment implements OnClickListener, OnDateSetListener {
 
+    static final int REQUEST_TAKE_PHOTO = 1;
+
 	static String ARGUMENT_TRANSACTION_UUID = "transaction_uuid";
 	static String ARGUMENT_ENVELOPE_UUID = "envelope_uuid";
 	static String ARGUMENT_TYPE = "type";
+    static String ARGUMENT_ATTACHMENT_FILENAME = "attachment_file";
 	
 	public static interface OnTransactionUpdateListener {
 		public void onTransactionUpdate(TransactionDataObject transaction);
@@ -61,6 +77,7 @@ public class TransactionDialogFragment extends DialogFragment implements OnClick
 		Bundle args = new Bundle();
 		if (transaction != null) {
 			args.putParcelable(ARGUMENT_TRANSACTION_UUID, new ParcelUuid(transaction.getId()));
+            args.putString(ARGUMENT_ATTACHMENT_FILENAME, transaction.getAttachment());
 			
 			if (transaction.getToEnvelope() == null) {
 				args.putInt(ARGUMENT_TYPE, TYPE_WITHDRAWAL);
@@ -127,6 +144,17 @@ public class TransactionDialogFragment extends DialogFragment implements OnClick
 		else
 			return null;
 	}
+
+    public void initAttachmentButton(View v) {
+        ImageButton btnAttachment = (ImageButton) v.findViewById(R.id.btnAttachment);
+
+        Drawable btnImage = null;
+        String fileName = getArguments().getString(ARGUMENT_ATTACHMENT_FILENAME);
+        if (fileName == null) { btnImage = getResources().getDrawable(R.drawable.clip_star); }
+        else { btnImage = getResources().getDrawable(R.drawable.clip_info); }
+
+        btnAttachment.setImageDrawable(btnImage);
+    }
 	
 	public void initView(View v) {
 		if (this.getDialog() != null) {
@@ -172,6 +200,11 @@ public class TransactionDialogFragment extends DialogFragment implements OnClick
 		
 		TextView titleText = (TextView) v.findViewById(R.id.titleText);
 		titleText.setText(typeString + " " +envelope.getTitle());
+
+        ImageButton btnAttachment = (ImageButton) v.findViewById(R.id.btnAttachment);
+        btnAttachment.setOnClickListener(this);
+        btnAttachment.setOnHoverListener(TooltipHoverListener.getInstance());
+        initAttachmentButton(btnAttachment);
 		
 		EditText editDate = (EditText) v.findViewById(R.id.editDate);
 		editDate.setOnClickListener(this);
@@ -223,7 +256,17 @@ public class TransactionDialogFragment extends DialogFragment implements OnClick
 			return null;
 		}		
 	}
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_TAKE_PHOTO) {
+            File file = new File(BudgetEnvelopes.getAppContext().getExternalFilesDir("attachments"), getArguments().getString(ARGUMENT_ATTACHMENT_FILENAME));
+            if( !file.exists() ) {
+                getArguments().putString(ARGUMENT_ATTACHMENT_FILENAME, null);
+            }
 
+            initAttachmentButton(getView());
+        }
+    }
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -245,10 +288,89 @@ public class TransactionDialogFragment extends DialogFragment implements OnClick
 		case R.id.buttonDone : 
 			saveToDb();
 			break;
+        case R.id.btnAttachment :
+            btnAttachmentClick(v);
+            break;
 		}
-		
 	}
-	
+
+    public void btnAttachmentClick(View v) {
+        String fileName = getArguments().getString(ARGUMENT_ATTACHMENT_FILENAME);
+
+        if (fileName == null) {
+            btnAttachmentTakePhoto();
+        }
+        else {
+            PopupMenu popupMenu = new PopupMenu(v.getContext(), v);
+            popupMenu.getMenuInflater().inflate(R.menu.popup_attachment_clip,
+                    popupMenu.getMenu());
+
+            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                @Override
+                public boolean onMenuItemClick(MenuItem item) {
+                    switch (item.getItemId()) {
+                        case R.id.action_update : btnAttachmentTakePhoto(); break;
+                        case R.id.action_delete : btnAttachmentDeletePhoto(); break;
+                        case R.id.action_view : btnAttachmentViewPhoto(); break;
+                    }
+                    initAttachmentButton(getView());
+                    return true;
+                }
+            });
+            popupMenu.show();
+        }
+    }
+
+    public void btnAttachmentTakePhoto() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        String fileName = getArguments().getString(ARGUMENT_ATTACHMENT_FILENAME);
+        if (fileName == null) {
+            fileName = getActiveTransactionId().toString() + ".jpg";
+            getArguments().putString(ARGUMENT_ATTACHMENT_FILENAME, fileName);
+        }
+
+        File imageFile = new File(BudgetEnvelopes.getAppContext().getExternalFilesDir("attachments").getPath(), fileName);
+
+        try {
+            imageFile.createNewFile();
+            imageFile.setReadable(true, false);
+        } catch (IOException e) {
+            return;
+        }
+
+        if (takePictureIntent.resolveActivity(BudgetEnvelopes.getAppContext().getPackageManager()) != null) {
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imageFile));
+            startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+        }
+    }
+
+    public void btnAttachmentViewPhoto() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        String fileName = getArguments().getString(ARGUMENT_ATTACHMENT_FILENAME);
+        if (fileName != null) {
+            File imageFile = new File(BudgetEnvelopes.getAppContext().getExternalFilesDir("attachments").getPath(), fileName);
+
+            Intent intent = new Intent();
+            intent.setAction(android.content.Intent.ACTION_VIEW);
+            intent.setDataAndType(Uri.fromFile(imageFile), "image/*");
+            startActivity(intent);
+        }
+    }
+
+    public void btnAttachmentDeletePhoto() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        String fileName = getArguments().getString(ARGUMENT_ATTACHMENT_FILENAME);
+        if (fileName != null) {
+            File imageFile = new File(BudgetEnvelopes.getAppContext().getExternalFilesDir("attachments").getPath(), fileName);
+            imageFile.delete();
+        }
+
+        getArguments().putString(ARGUMENT_ATTACHMENT_FILENAME, null);
+    }
+
 	public void saveToDb() {		
 		Resources res = getResources();
 
@@ -304,6 +426,7 @@ public class TransactionDialogFragment extends DialogFragment implements OnClick
 		trans.setText(editDescription.getText().toString());
 		trans.setTimestamp(getDateEditValue());
 		trans.setPending(switchPending.isChecked());
+        trans.setAttachment(getArguments().getString(ARGUMENT_ATTACHMENT_FILENAME));
 		
 		trans.insertOrReplaceIntoDb(db.getWritableDatabase(), true);
 		

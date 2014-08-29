@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_update"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/update_attachment"/>
+    <item
+    android:id="@+id/action_view"
+    android:orderInCategory="100"
+    android:showAsAction="never"
+    android:title="@string/view_attachment"/>
+    <item
+        android:id="@+id/action_delete"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/delete_attachment"/>
+</menu>

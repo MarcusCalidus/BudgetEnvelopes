@@ -326,7 +326,7 @@ public class TransactionDialogFragment extends DialogFragment implements OnClick
 
         String fileName = getArguments().getString(ARGUMENT_ATTACHMENT_FILENAME);
         if (fileName == null) {
-            fileName = getActiveTransactionId().toString() + ".jpg";
+            fileName = UUID.randomUUID().toString() + ".jpg";
             getArguments().putString(ARGUMENT_ATTACHMENT_FILENAME, fileName);
         }
 

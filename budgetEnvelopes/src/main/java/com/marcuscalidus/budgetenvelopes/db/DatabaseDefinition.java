@@ -16,7 +16,7 @@ import java.util.UUID;
 
 public class DatabaseDefinition extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 4;
+	private static final int DATABASE_VERSION = 5;
 	
 	private final BaseDataObject[] dataObjects = { 
 			new SettingsDataObject(null, null),
@@ -54,6 +54,7 @@ public class DatabaseDefinition extends SQLiteOpenHelper {
 					   " set "+BaseDataObject.FIELDNAME_CHANGED+"=NULL"+
 					   " where "+BaseDataObject.FIELDNAME_CHANGED+" IS NOT NULL;");
 			dataObjects[i].createFieldsInDb(db);
+            dataObjects[i].createTriggersInDb(db);
 		}
 		
 		db.setTransactionSuccessful();

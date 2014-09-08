@@ -221,7 +221,7 @@ public class TransactionDataObject extends BaseDataObject {
         String fromDateString = String.valueOf(fromDate.getTimeInMillis());
         String toDateString = String.valueOf(toDate.getTimeInMillis());
         
-        String selectQuery = "select sum("+FIELDNAME_AMOUNT+") from "+TABLENAME+
+        String selectQuery = "select sum(round("+FIELDNAME_AMOUNT+",2)) from "+TABLENAME+
         		             " where "+FIELDNAME_TIMESTAMP+" >= "+fromDateString+
         		             " and "+FIELDNAME_TIMESTAMP+" <= "+toDateString+
         		             " and coalesce("+FIELDNAME_FROM_ENVELOPE+",0)=0"+
@@ -234,7 +234,7 @@ public class TransactionDataObject extends BaseDataObject {
             result.put(KEY_INCOME, c.getFloat(0));
         }
 		
-        selectQuery = "select sum("+FIELDNAME_AMOUNT+") from "+TABLENAME+
+        selectQuery = "select sum(round("+FIELDNAME_AMOUNT+",2)) from "+TABLENAME+
 	             " where "+FIELDNAME_TIMESTAMP+" between "+fromDateString+" and "+toDateString+
 	             " and coalesce("+FIELDNAME_TO_ENVELOPE+",0)=0"+
 	             " and coalesce("+FIELDNAME_DELETED+", 0) = 0"+ 
@@ -275,13 +275,13 @@ public class TransactionDataObject extends BaseDataObject {
 		String updateQueryToEnvelopeNew = " update "+EnvelopeDataObject.TABLENAME+
 				" set "+EnvelopeDataObject.FIELDNAME_BUDGET+" =  " +
 				        //all transactions that went into the envelope
-						"(select coalesce(sum("+FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+FIELDNAME_AMOUNT+",2)), 0) " +
 								"from "+TABLENAME+
 								" where "+FIELDNAME_TO_ENVELOPE+"=new."+FIELDNAME_TO_ENVELOPE+
 								" and coalesce("+FIELDNAME_DELETED+",0)=0) " +
 						" - " +
 					    //all transactions that went out of that envelope
-						"(select coalesce(sum("+FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+FIELDNAME_AMOUNT+",2)), 0) " +
 						"from "+TABLENAME+
 						" where "+FIELDNAME_FROM_ENVELOPE+"=new."+FIELDNAME_TO_ENVELOPE+
 						" and coalesce("+FIELDNAME_DELETED+",0)=0) " +
@@ -291,13 +291,13 @@ public class TransactionDataObject extends BaseDataObject {
 		String updateQueryFromEnvelopeNew = " update "+EnvelopeDataObject.TABLENAME+
 				" set "+EnvelopeDataObject.FIELDNAME_BUDGET+" =  " +
 				        //all transactions that went into the envelope
-						"(select coalesce(sum("+FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+FIELDNAME_AMOUNT+",2)), 0) " +
 								"from "+TABLENAME+
 								" where "+FIELDNAME_TO_ENVELOPE+"=new."+FIELDNAME_FROM_ENVELOPE+
 								" and coalesce("+FIELDNAME_DELETED+",0)=0) " +
 						" - " +
 					    //all transactions that went out of that envelope
-						"(select coalesce(sum("+FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+FIELDNAME_AMOUNT+",2)), 0) " +
 						"from "+TABLENAME+
 						" where "+FIELDNAME_FROM_ENVELOPE+"=new."+FIELDNAME_FROM_ENVELOPE+
 						" and coalesce("+FIELDNAME_DELETED+",0)=0) " +
@@ -307,13 +307,13 @@ public class TransactionDataObject extends BaseDataObject {
 		String updateQueryToEnvelopeOld = " update "+EnvelopeDataObject.TABLENAME+
 				" set "+EnvelopeDataObject.FIELDNAME_BUDGET+" =  " +
 				        //all transactions that went into the envelope
-						"(select coalesce(sum("+FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+FIELDNAME_AMOUNT+",2)), 0) " +
 								"from "+TABLENAME+
 								" where "+FIELDNAME_TO_ENVELOPE+"=old."+FIELDNAME_TO_ENVELOPE+
 								" and coalesce("+FIELDNAME_DELETED+",0)=0) " +
 						" - " +
 					    //all transactions that went out of that envelope
-						"(select coalesce(sum("+FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+FIELDNAME_AMOUNT+",2)), 0) " +
 						"from "+TABLENAME+
 						" where "+FIELDNAME_FROM_ENVELOPE+"=old."+FIELDNAME_TO_ENVELOPE+
 						" and coalesce("+FIELDNAME_DELETED+",0)=0) " +
@@ -324,13 +324,13 @@ public class TransactionDataObject extends BaseDataObject {
 		String updateQueryFromEnvelopeOld = " update "+EnvelopeDataObject.TABLENAME+
 				" set "+EnvelopeDataObject.FIELDNAME_BUDGET+" =  " +
 				        //all transactions that went into the envelope
-						"(select coalesce(sum("+FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+FIELDNAME_AMOUNT+",2)), 0) " +
 								"from "+TABLENAME+
 								" where "+FIELDNAME_TO_ENVELOPE+"=old."+FIELDNAME_FROM_ENVELOPE+
 								" and coalesce("+FIELDNAME_DELETED+",0)=0) " +
 						" - " +
 					    //all transactions that went out of that envelope
-						"(select coalesce(sum("+FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+FIELDNAME_AMOUNT+",2)), 0) " +
 						"from "+TABLENAME+
 						" where "+FIELDNAME_FROM_ENVELOPE+"=old."+FIELDNAME_FROM_ENVELOPE+
 						" and coalesce("+FIELDNAME_DELETED+",0)=0) " +

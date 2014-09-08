@@ -274,13 +274,13 @@ public class EnvelopeDataObject extends BaseDataObject {
 		String updateQueryEnvelopeBudget = " update "+TABLENAME+
 				" set "+FIELDNAME_BUDGET+" = " +
 				        //all transactions that went into the envelope
-						"(select coalesce(sum("+TransactionDataObject.FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+TransactionDataObject.FIELDNAME_AMOUNT+",2)), 0) " +
 								"from "+TransactionDataObject.TABLENAME+
 								" where "+TransactionDataObject.FIELDNAME_TO_ENVELOPE+"=new.ID"+
 								" and coalesce("+TransactionDataObject.FIELDNAME_DELETED+",0)=0) " +
 						" - " +
 					    //all transactions that went out of that envelope
-						"(select coalesce(sum("+TransactionDataObject.FIELDNAME_AMOUNT+"), 0) " +
+						"(select coalesce(sum(round("+TransactionDataObject.FIELDNAME_AMOUNT+",2)), 0) " +
 						"from "+TransactionDataObject.TABLENAME+
 						" where "+TransactionDataObject.FIELDNAME_FROM_ENVELOPE+"=new.ID"+
 						" and coalesce("+TransactionDataObject.FIELDNAME_DELETED+",0)=0) " +
@@ -288,7 +288,7 @@ public class EnvelopeDataObject extends BaseDataObject {
 		
 		String updateQueryEnvelopeExpense = " update "+TABLENAME+
 				" set "+FIELDNAME_EXPENSES+" = " + 
-					"(select sum("+ExpenseDataObject.FIELDNAME_AMOUNT+"/"+ExpenseDataObject.FIELDNAME_FREQUENCY+") "+
+					"(select sum(round("+ExpenseDataObject.FIELDNAME_AMOUNT+",2)/"+ExpenseDataObject.FIELDNAME_FREQUENCY+") "+
 						"from "+ExpenseDataObject.TABLENAME+
 						" where "+ExpenseDataObject.FIELDNAME_ENVELOPE+"=new.ID"+
 						" and coalesce("+ExpenseDataObject.FIELDNAME_DELETED+",0)=0) "+
@@ -296,7 +296,7 @@ public class EnvelopeDataObject extends BaseDataObject {
 		
 		String updateQueryBaseEnvelope = " update "+TABLENAME+
 				" set "+FIELDNAME_EXPENSES+" = "+
-						"(select sum("+ExpenseDataObject.FIELDNAME_AMOUNT+"/"+ExpenseDataObject.FIELDNAME_FREQUENCY+")"+
+						"(select sum(round("+ExpenseDataObject.FIELDNAME_AMOUNT+",2)/"+ExpenseDataObject.FIELDNAME_FREQUENCY+")"+
 						" from "+ExpenseDataObject.TABLENAME+
 						" where coalesce("+ExpenseDataObject.FIELDNAME_DELETED+",0)=0)"+
 					" where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";		

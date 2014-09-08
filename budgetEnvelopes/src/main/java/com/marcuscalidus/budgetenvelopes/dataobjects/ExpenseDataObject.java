@@ -101,8 +101,8 @@ public class ExpenseDataObject extends BaseDataObject {
 	protected ArrayList<String> getTriggers() {
 		ArrayList<String> result = super.getTriggers();
 		
-		String updateQueryEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select sum("+FIELDNAME_AMOUNT+"/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where "+FIELDNAME_ENVELOPE+"=new."+FIELDNAME_ENVELOPE+" and coalesce("+FIELDNAME_DELETED+",0)=0)  where ID=new."+FIELDNAME_ENVELOPE+"; ";
-		String updateQueryBaseEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select sum("+FIELDNAME_AMOUNT+"/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where coalesce("+FIELDNAME_DELETED+",0)=0) where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";
+		String updateQueryEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select sum(round("+FIELDNAME_AMOUNT+",2)/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where "+FIELDNAME_ENVELOPE+"=new."+FIELDNAME_ENVELOPE+" and coalesce("+FIELDNAME_DELETED+",0)=0)  where ID=new."+FIELDNAME_ENVELOPE+"; ";
+		String updateQueryBaseEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select sum(round("+FIELDNAME_AMOUNT+",2)/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where coalesce("+FIELDNAME_DELETED+",0)=0) where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";
 
 		result.add("drop trigger if exists INSERT_"+getTableName()+"_CALC_ENVELOPE_EXPENSES");
 		result.add("drop trigger if exists UPDATE_"+getTableName()+"_CALC_ENVELOPE_EXPENSES");

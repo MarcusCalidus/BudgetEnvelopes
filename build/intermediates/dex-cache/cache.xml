@@ -26,23 +26,71 @@
         revision="20.0.0"
         sha1="d71573c9c5ea98a8db47ad6ff993a63d492b3bfa"/>
     <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/multiwindow-v1.0.2-c95305a9d397b517f456d9f8e04c66655cdf7afa.jar"
+        jar="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/libs/multiwindow-v1.0.2.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="329ad833ab5b4af8b673ed3f8f7f2891fa7ddcc0"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/sdk-v1.0.0-294a2c5070766d58d3da4e36930b7efbf007d2b5.jar"
+        jar="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/libs/sdk-v1.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e2ce3786b6e9519934c4a54aaaaf39525bf4486c"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/guava-jdk5-13.0-911f1163e6a45b60cd06896e646d307c71a5e40c.jar"
+        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/13.0/381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7/guava-jdk5-13.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-android-1.19.0-780888ce6f55297f7dbf861bc6c31209cd2e30b1.jar"
+        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.19.0/e3f11020c2c812112803d252d1392872d3f619c8/google-http-client-android-1.19.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e3f11020c2c812112803d252d1392872d3f619c8"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/jsr305-3.0.0-b9cc677db1d3f884f30ab3766442b5737f8d0641.jar"
+        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-d7ab6858d5f2ef674410257424bd72b627262fdb.jar"
+        jar="/home/mawarm/android-studio/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-1.19.0-497a4b60c78584827ffa14b1bacfbedca111e8bc.jar"
+        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.19.0/cdca49ad0977c040f603478aa2e16b2775c8fec6/google-http-client-1.19.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/jackson-core-2.1.3-3714b97cc96fef2ed056601b2acaeb0bee2582d8.jar"
+        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-api-client-android-1.19.0-c2d63d9785052ccd78d27b3fdb717c48af8c5a69.jar"
+        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.19.0/ba2aafb867f6af469f936ae76426cf0a280094bd/google-api-client-android-1.19.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="ba2aafb867f6af469f936ae76426cf0a280094bd"/>
+    <item
         dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/classes-44b74464cac9f2468fca5391f8993e296a20f291.jar"
         jar="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/exploded-aar/BudgetEnvelopes/colorPickerView/unspecified/classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="ab81d902ec02575b37c142a465e472a306c12495"/>
+        sha1="fa13978d2bf92014e196c444595939a6d2de44da"/>
     <item
         dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/gson-2.2.4-82ecec5372629378b475d79bbab7b8af2fb2b177.jar"
         jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="a60a5e993c98c864010053cb901b7eab25306568"/>
-    <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/multiwindow-v1.0.2-c95305a9d397b517f456d9f8e04c66655cdf7afa.jar"
-        jar="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/libs/multiwindow-v1.0.2.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="329ad833ab5b4af8b673ed3f8f7f2891fa7ddcc0"/>
     <item
         dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-152b5b85a8a9b34b2fd4c2c7951d00e6f1c65d2f.jar"
         jar="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/libs/internal_impl-20.0.0.jar"
@@ -68,64 +116,16 @@
         revision="20.0.0"
         sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
     <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/sdk-v1.0.0-294a2c5070766d58d3da4e36930b7efbf007d2b5.jar"
-        jar="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/libs/sdk-v1.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e2ce3786b6e9519934c4a54aaaaf39525bf4486c"/>
-    <item
         dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-api-client-1.19.0-f65b9283b00efb6e89776c08a084d164fc479b34.jar"
         jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.19.0/6a21277d9bebe267b7ddee028b241eebc756c040/google-api-client-1.19.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="6a21277d9bebe267b7ddee028b241eebc756c040"/>
     <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/guava-jdk5-13.0-911f1163e6a45b60cd06896e646d307c71a5e40c.jar"
-        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/13.0/381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7/guava-jdk5-13.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7"/>
-    <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-android-1.19.0-780888ce6f55297f7dbf861bc6c31209cd2e30b1.jar"
-        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.19.0/e3f11020c2c812112803d252d1392872d3f619c8/google-http-client-android-1.19.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e3f11020c2c812112803d252d1392872d3f619c8"/>
-    <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-d7ab6858d5f2ef674410257424bd72b627262fdb.jar"
-        jar="/home/mawarm/android-studio/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
-    <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/jsr305-3.0.0-b9cc677db1d3f884f30ab3766442b5737f8d0641.jar"
-        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="5871fb60dc68d67da54a663c3fd636a10a532948"/>
-    <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-1.19.0-497a4b60c78584827ffa14b1bacfbedca111e8bc.jar"
-        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.19.0/cdca49ad0977c040f603478aa2e16b2775c8fec6/google-http-client-1.19.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6"/>
-    <item
         dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.19.0-f9cb9c598380875788b1ad2673116bdcf6d7f3aa.jar"
         jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.19.0/81dbf9795d387d5e80e55346582d5f2fb81a42eb/google-http-client-jackson2-1.19.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="81dbf9795d387d5e80e55346582d5f2fb81a42eb"/>
-    <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/jackson-core-2.1.3-3714b97cc96fef2ed056601b2acaeb0bee2582d8.jar"
-        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd"/>
-    <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-api-client-android-1.19.0-c2d63d9785052ccd78d27b3fdb717c48af8c5a69.jar"
-        jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.19.0/ba2aafb867f6af469f936ae76426cf0a280094bd/google-api-client-android-1.19.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="ba2aafb867f6af469f936ae76426cf0a280094bd"/>
 
 </pre-dex-items>

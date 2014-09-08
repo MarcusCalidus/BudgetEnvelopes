@@ -140,8 +140,6 @@ public abstract class BaseDataObject {
 	    for (int i = 0; i < fields.size(); i++) {
 	    	db.execSQL("alter table " + getTableName() + " add column " + fields.get(i) + ";");
 	    }
-	     
-	    
 	}
 	
 /*	public void deleteFromDb(SQLiteDatabase db) {	

@@ -69,18 +69,18 @@ public abstract class BaseDataObject {
 		ArrayList<String> result = new ArrayList<String>();
 		result.add("drop trigger if exists UPDATE_"+getTableName()+"_SETCHANGED");
 		result.add("drop trigger if exists INSERT_"+getTableName()+"_SETCHANGED");
-		
-		result.add("create trigger if not exists UPDATE_"+getTableName()+"_SETCHANGED " +
-				"after update of "+fieldlist+" on " + getTableName() + " for each row " +
-				"begin" +
-				" update "+getTableName()+" set CHANGED=datetime('now') where ID=new.ID; " +				
-				"end");
-		
-		result.add("create trigger if not exists INSERT_"+getTableName()+"_SETCHANGED " +
-				"after insert on " + getTableName() + " for each row " +
-				"begin " +
-				" update "+getTableName()+" set CHANGED=datetime('now') where ID=new.ID; " +				
-				"end");
+
+        result.add("create trigger if not exists UPDATE_" + getTableName() + "_SETCHANGED " +
+                    "after update of " + fieldlist + " on " + getTableName() + " for each row " +
+                    "begin" +
+                    " update " + getTableName() + " set CHANGED=datetime('now') where ID=new.ID; " +
+                    "end");
+
+        result.add("create trigger if not exists INSERT_" + getTableName() + "_SETCHANGED " +
+                    "after insert on " + getTableName() + " for each row " +
+                    "begin " +
+                    " update " + getTableName() + " set CHANGED=datetime('now') where ID=new.ID; " +
+                    "end");
 		
 		return result;
 	}
@@ -115,15 +115,20 @@ public abstract class BaseDataObject {
 	public void createTableInDb(SQLiteDatabase db) {
 		db.execSQL(getCreateTableStmt());
 	}
-	
-	public void createTriggersInDb(SQLiteDatabase db) {
-		ArrayList<String> triggers = getTriggers();
-		for (int i = 0; i < triggers.size(); i++) {
-			db.execSQL(triggers.get(i));
-		}
-	}
-	
-	public void createFieldsInDb(SQLiteDatabase db) {
+
+    public void createTriggersInDb(SQLiteDatabase db) {
+        ArrayList<String> triggers = getTriggers();
+        for (int i = 0; i < triggers.size(); i++) {
+            db.execSQL(triggers.get(i));
+        }
+    }
+
+    public void deleteChangeTriggersInDb(SQLiteDatabase db) {
+        db.execSQL("drop trigger if exists UPDATE_"+getTableName()+"_SETCHANGED");
+        db.execSQL("drop trigger if exists INSERT_"+getTableName()+"_SETCHANGED");
+    }
+
+    public void createFieldsInDb(SQLiteDatabase db) {
 		Cursor c = db.rawQuery("pragma table_info("+getTableName()+")", null);
 		  
 		ArrayList<String> fields = new ArrayList<String>();

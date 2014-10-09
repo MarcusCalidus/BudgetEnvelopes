@@ -37,7 +37,7 @@ public class ExpenseDataObject extends BaseDataObject {
 	@Override
 	protected void initializeFromCursor(Cursor c) {
 		_Label = c.getString(c.getColumnIndex(FIELDNAME_LABEL));
-		_Amount = c.getFloat(c.getColumnIndex(FIELDNAME_AMOUNT));
+		_Amount = c.getFloat(c.getColumnIndex(FIELDNAME_AMOUNT)) / 100;
 		_Frequency = c.getInt(c.getColumnIndex(FIELDNAME_FREQUENCY));
 		_Envelope = castBlobAsUUID(c.getBlob(c.getColumnIndex(FIELDNAME_ENVELOPE)));
 	}
@@ -55,7 +55,7 @@ public class ExpenseDataObject extends BaseDataObject {
 	@Override
 	protected ContentValues getContentValues() {
 		ContentValues vals = new ContentValues();
-		vals.put(FIELDNAME_AMOUNT, _Amount);
+		vals.put(FIELDNAME_AMOUNT, (int)(_Amount * 100));
 		vals.put(FIELDNAME_ENVELOPE, castUUIDAsBlob(getEnvelope()));
 		vals.put(FIELDNAME_FREQUENCY, _Frequency);
 		vals.put(FIELDNAME_LABEL, _Label);
@@ -101,8 +101,8 @@ public class ExpenseDataObject extends BaseDataObject {
 	protected ArrayList<String> getTriggers() {
 		ArrayList<String> result = super.getTriggers();
 		
-		String updateQueryEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select sum(round("+FIELDNAME_AMOUNT+",2)/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where "+FIELDNAME_ENVELOPE+"=new."+FIELDNAME_ENVELOPE+" and coalesce("+FIELDNAME_DELETED+",0)=0)  where ID=new."+FIELDNAME_ENVELOPE+"; ";
-		String updateQueryBaseEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select sum(round("+FIELDNAME_AMOUNT+",2)/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where coalesce("+FIELDNAME_DELETED+",0)=0) where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";
+		String updateQueryEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select round(sum("+FIELDNAME_AMOUNT+")/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where "+FIELDNAME_ENVELOPE+"=new."+FIELDNAME_ENVELOPE+" and coalesce("+FIELDNAME_DELETED+",0)=0)  where ID=new."+FIELDNAME_ENVELOPE+"; ";
+		String updateQueryBaseEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select round(sum("+FIELDNAME_AMOUNT+")/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where coalesce("+FIELDNAME_DELETED+",0)=0) where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";
 
 		result.add("drop trigger if exists INSERT_"+getTableName()+"_CALC_ENVELOPE_EXPENSES");
 		result.add("drop trigger if exists UPDATE_"+getTableName()+"_CALC_ENVELOPE_EXPENSES");

@@ -64,8 +64,8 @@ public class EnvelopeDataObject extends BaseDataObject {
 		_TabColor = c.getInt(c.getColumnIndex(FIELDNAME_TABCOLOR));
 		_Position = c.getInt(c.getColumnIndex(FIELDNAME_POSITION));	
 		_Space_After = c.getInt(c.getColumnIndex(FIELDNAME_SPACE_AFTER)) != 0;
-		_Expenses = (float) (Math.ceil(c.getFloat(c.getColumnIndex(FIELDNAME_EXPENSES))*100)/100);
-		_Budget = (float) (Math.floor(c.getFloat(c.getColumnIndex(FIELDNAME_BUDGET))*100)/100);
+		_Expenses = c.getFloat(c.getColumnIndex(FIELDNAME_EXPENSES))/100;
+		_Budget = c.getFloat(c.getColumnIndex(FIELDNAME_BUDGET))/100;
 		_Stamp = c.getString(c.getColumnIndex(FIELDNAME_STAMP));
 	}
 	
@@ -262,7 +262,7 @@ public class EnvelopeDataObject extends BaseDataObject {
 		Cursor c = db.rawQuery(selectQuery, null);
 		
 		if (c.moveToFirst()) {
-			result = c.getFloat(0);
+			result = c.getFloat(0) / 100;
 		}
 		return result;		
 	}
@@ -274,13 +274,13 @@ public class EnvelopeDataObject extends BaseDataObject {
 		String updateQueryEnvelopeBudget = " update "+TABLENAME+
 				" set "+FIELDNAME_BUDGET+" = " +
 				        //all transactions that went into the envelope
-						"(select coalesce(sum(round("+TransactionDataObject.FIELDNAME_AMOUNT+",2)), 0) " +
+						"(select coalesce(sum("+TransactionDataObject.FIELDNAME_AMOUNT+"), 0) " +
 								"from "+TransactionDataObject.TABLENAME+
 								" where "+TransactionDataObject.FIELDNAME_TO_ENVELOPE+"=new.ID"+
 								" and coalesce("+TransactionDataObject.FIELDNAME_DELETED+",0)=0) " +
 						" - " +
 					    //all transactions that went out of that envelope
-						"(select coalesce(sum(round("+TransactionDataObject.FIELDNAME_AMOUNT+",2)), 0) " +
+						"(select coalesce(sum("+TransactionDataObject.FIELDNAME_AMOUNT+"), 0) " +
 						"from "+TransactionDataObject.TABLENAME+
 						" where "+TransactionDataObject.FIELDNAME_FROM_ENVELOPE+"=new.ID"+
 						" and coalesce("+TransactionDataObject.FIELDNAME_DELETED+",0)=0) " +
@@ -288,7 +288,7 @@ public class EnvelopeDataObject extends BaseDataObject {
 		
 		String updateQueryEnvelopeExpense = " update "+TABLENAME+
 				" set "+FIELDNAME_EXPENSES+" = " + 
-					"(select sum(round("+ExpenseDataObject.FIELDNAME_AMOUNT+",2)/"+ExpenseDataObject.FIELDNAME_FREQUENCY+") "+
+					"(select round(sum("+ExpenseDataObject.FIELDNAME_AMOUNT+")/"+ExpenseDataObject.FIELDNAME_FREQUENCY+") "+
 						"from "+ExpenseDataObject.TABLENAME+
 						" where "+ExpenseDataObject.FIELDNAME_ENVELOPE+"=new.ID"+
 						" and coalesce("+ExpenseDataObject.FIELDNAME_DELETED+",0)=0) "+
@@ -296,20 +296,20 @@ public class EnvelopeDataObject extends BaseDataObject {
 		
 		String updateQueryBaseEnvelope = " update "+TABLENAME+
 				" set "+FIELDNAME_EXPENSES+" = "+
-						"(select sum(round("+ExpenseDataObject.FIELDNAME_AMOUNT+",2)/"+ExpenseDataObject.FIELDNAME_FREQUENCY+")"+
+						"(select round(sum("+ExpenseDataObject.FIELDNAME_AMOUNT+")/"+ExpenseDataObject.FIELDNAME_FREQUENCY+")"+
 						" from "+ExpenseDataObject.TABLENAME+
 						" where coalesce("+ExpenseDataObject.FIELDNAME_DELETED+",0)=0)"+
 					" where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";		
 
 		result.add("drop trigger if exists UPDATE_"+getTableName()+"_CALC_ENVELOPE");
-		
-		result.add("create trigger if not exists UPDATE_"+getTableName()+"_CALC_ENVELOPE " +
-				"after update  of "+FIELDNAME_EXPENSES+","+FIELDNAME_BUDGET+" on " + getTableName() + " for each row " +
-				"begin" +
-				updateQueryEnvelopeBudget +
-				updateQueryEnvelopeExpense +
-				updateQueryBaseEnvelope +
-				"end");
+
+        result.add("create trigger if not exists UPDATE_" + getTableName() + "_CALC_ENVELOPE " +
+                    "after update  of " + FIELDNAME_EXPENSES + "," + FIELDNAME_BUDGET + " on " + getTableName() + " for each row " +
+                    "begin" +
+                    updateQueryEnvelopeBudget +
+                    updateQueryEnvelopeExpense +
+                    updateQueryBaseEnvelope +
+                    "end");
 		
 		return result;
 	}

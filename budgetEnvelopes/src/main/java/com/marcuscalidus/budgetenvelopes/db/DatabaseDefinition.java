@@ -16,7 +16,7 @@ import java.util.UUID;
 
 public class DatabaseDefinition extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 5;
+	private static final int DATABASE_VERSION = 6;
 	
 	private final BaseDataObject[] dataObjects = { 
 			new SettingsDataObject(null, null),
@@ -42,7 +42,20 @@ public class DatabaseDefinition extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		onCreate(db);
+
+        onCreate(db);
+
+        if ((oldVersion<=5) && (newVersion >= 6)) {
+            //shift to integer "cent" calculation
+            for (int i = 0; i < dataObjects.length; i++) {
+                dataObjects[i].deleteChangeTriggersInDb(db);
+            }
+
+            db.execSQL("update " + ExpenseDataObject.TABLENAME + " set " + ExpenseDataObject.FIELDNAME_AMOUNT + " = round(100 * " + ExpenseDataObject.FIELDNAME_AMOUNT + ")");
+            db.execSQL("update " + TransactionDataObject.TABLENAME + " set " + TransactionDataObject.FIELDNAME_AMOUNT + " = round(100 * " + TransactionDataObject.FIELDNAME_AMOUNT + ")");
+
+            onCreate(db);
+        }
 	}
 	
 	public Boolean cleanup() {

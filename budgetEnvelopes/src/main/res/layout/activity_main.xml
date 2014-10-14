@@ -8,7 +8,7 @@
     <RelativeLayout
         android:id="@+id/toolbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true" 
         android:background="@color/darkToolbar" >
 
@@ -32,17 +32,16 @@
             android:contentDescription="@string/action_backup_sync"
             android:scaleType="fitCenter"
             android:src="@drawable/google_drive_original_dark_gray" />
-        
+
         <ImageView
-            android:id="@+id/imageEnvelopeSettings"
+            android:id="@+id/imageOverflow"
             android:layout_width="36dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="130dp"
-            android:contentDescription="@string/action_manage_envelopes"
-            android:layout_toRightOf="@+id/imageSync"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/action_more_options"
             android:scaleType="fitCenter"
-            android:src="@drawable/envelope_open_gear" />
+            android:src="@drawable/ic_action_overflow" />
 
     </RelativeLayout>
     
@@ -176,6 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="25dp" >
 
@@ -185,7 +185,6 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginLeft="20dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/button_circle"
                 android:contentDescription="@string/desc_distribute"

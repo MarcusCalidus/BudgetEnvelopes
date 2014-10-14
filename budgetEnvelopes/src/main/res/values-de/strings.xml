@@ -3,11 +3,15 @@
     <string name="app_name">Budget Envelopes</string>
     <string name="action_settings">Einstellungen</string>
     <string name="action_manage_envelopes">Umschläge bearbeiten</string>
+    <string name="action_more_options">mehr Optionen</string>
     <string name="action_backup_sync">Synchronisieren/Sichern</string>
+    <string name="action_empty_envelopes">Umschläge leeren</string>
     <string name="dummy">dummy</string>
     <string name="setup_envelope">Umschlag bearbeiten</string>
     <string name="delete_envelope">Umschlag löschen</string>
     <string name="delete_envelope_question">Möchtest du diesen Umschlag wirklich löschen?</string>
+    <string name="empty_envelopes">Umschläge leeren</string>
+    <string name="empty_envelopes_question">Möchtest du wirklich alle Umschläge leeren?</string>
     <string name="envelopelabel">Bezeichnung</string>
     <string name="chooseColor">Wähle Farbe und Marke</string>
     <string name="done">Fertig</string>

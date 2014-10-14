@@ -3,6 +3,7 @@ package com.marcuscalidus.budgetenvelopes.dataobjects;
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.CursorAdapter;
@@ -12,7 +13,10 @@ import android.widget.SimpleCursorAdapter;
 import com.marcuscalidus.budgetenvelopes.R;
 import com.marcuscalidus.budgetenvelopes.transactions.TransactionDialogFragment;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -349,5 +353,27 @@ public class EnvelopeDataObject extends BaseDataObject {
 	    	 db.endTransaction();
 	     }
 	}
+
+    public void emptyEnvelope(SQLiteDatabase db) {
+        Resources r = context.getResources();
+        r.getText(R.string.empty_envelopes);
+
+        TransactionDataObject transaction = new TransactionDataObject(context, null);
+        transaction.setAmount(this.getBudget());
+        transaction.setFromEnvelope(this.getId());
+        transaction.setToEnvelope(baseEnvelopeID);
+        transaction.setTimestamp(new Date());
+        transaction.setText(r.getText(R.string.empty_envelopes).toString());
+
+        transaction.insertOrReplaceIntoDb(db, true);
+    }
+
+    public static void emptyAllEnvelopes(Context context, SQLiteDatabase db) {
+        List<EnvelopeDataObject> envelopes = getAllEnvelopes(context, db, false, false);
+
+        for (EnvelopeDataObject envelope : envelopes) {
+            envelope.emptyEnvelope(db);
+        }
+    }
 
 }

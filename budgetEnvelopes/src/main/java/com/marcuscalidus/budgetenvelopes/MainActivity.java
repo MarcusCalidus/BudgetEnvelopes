@@ -1,13 +1,16 @@
 package com.marcuscalidus.budgetenvelopes;
 
+import android.animation.Animator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -31,6 +34,7 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.marcuscalidus.budgetenvelopes.dataobjects.EnvelopeDataObject;
 import com.marcuscalidus.budgetenvelopes.dataobjects.TransactionDataObject;
@@ -127,7 +131,7 @@ public class MainActivity extends Activity implements
 		img = (ImageView) findViewById(R.id.imageSettings);
 		img.setOnHoverListener(TooltipHoverListener.getInstance());
 		img.setOnClickListener(this);		
-		img = (ImageView) findViewById(R.id.imageEnvelopeSettings);
+		img = (ImageView) findViewById(R.id.imageOverflow);
 		img.setOnHoverListener(TooltipHoverListener.getInstance());
 		img.setOnClickListener(this);
 		
@@ -185,8 +189,8 @@ public class MainActivity extends Activity implements
 		case R.id.imageSync: 
 			startSyncActivity();
 			break; 
-		case R.id.imageEnvelopeSettings:
-			manageEnvelopes();	
+		case R.id.imageOverflow:
+			this.openOptionsMenu();
 			break;
 		case R.id.imageSettings:
 			startSettingsActivity();
@@ -241,10 +245,39 @@ public class MainActivity extends Activity implements
 		case R.id.action_settings:
 			startSettingsActivity();
 			return true;
+        case R.id.action_empty_envelopes:
+            emptyEnvelopes();
+            return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}
+
+    private void emptyEnvelopes() {
+        Resources res = getResources();
+        AlertDialog dialog = new AlertDialog.Builder(this).create();
+        dialog.setTitle(res.getString(R.string.empty_envelopes));
+        dialog.setMessage(res.getString(R.string.empty_envelopes_question));
+        final OnTransactionUpdateListener listener = this;
+
+
+        dialog.setButton(DialogInterface.BUTTON_POSITIVE, res.getString(android.R.string.yes), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int buttonId) {
+                EnvelopeDataObject.emptyAllEnvelopes(BudgetEnvelopes.getAppContext(), DBMain.getInstance().getWritableDatabase());
+                listener.onTransactionUpdate(null);
+                return;
+            }
+        });
+
+        dialog.setButton(DialogInterface.BUTTON_NEGATIVE, res.getString(android.R.string.no), new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int buttonId) {
+                return;
+            }
+        });
+
+        dialog.setIcon(android.R.drawable.ic_dialog_alert);
+        dialog.show();
+    }
 	
 	private void startSettingsActivity() {
 		Intent sac = new

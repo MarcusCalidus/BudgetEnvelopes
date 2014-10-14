@@ -10,10 +10,15 @@
         android:id="@+id/action_manage_envelopes"
         android:orderInCategory="100"
         android:title="@string/action_manage_envelopes"/>
-    
-     <item 
-        android:id="@+id/action_backup_sync"        
+
+    <item
+        android:id="@+id/action_backup_sync"
         android:orderInCategory="1"
         android:title="@string/action_backup_sync"/>
+
+    <item
+        android:id="@+id/action_empty_envelopes"
+        android:orderInCategory="1"
+        android:title="@string/action_empty_envelopes"/>
 
 </menu>

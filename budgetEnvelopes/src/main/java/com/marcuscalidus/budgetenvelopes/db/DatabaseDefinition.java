@@ -16,7 +16,7 @@ import java.util.UUID;
 
 public class DatabaseDefinition extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 6;
+	private static final int DATABASE_VERSION = 7;
 	
 	private final BaseDataObject[] dataObjects = { 
 			new SettingsDataObject(null, null),

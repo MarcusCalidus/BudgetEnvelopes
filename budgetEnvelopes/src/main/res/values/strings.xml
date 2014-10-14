@@ -14,6 +14,7 @@
     <string name="empty_envelopes_question">Do you really want to empty all envelopes?</string>
     <string name="envelopelabel">Envelope Label</string>
     <string name="chooseColor">Choose color and stamp</string>
+    <string name="keep_budget_on_empty">Ignore when emptying envelopes</string>
     <string name="done">Done</string>    
     <string name="execute">Execute</string>
     <string name="cancel">Cancel</string>
@@ -37,6 +38,7 @@
     <string name="desc_envelope_delete">Delete this envelope</string>
     <string name="desc_envelope_stamp">Stamp to decorate this envelope</string>
     <string name="desc_envelope_edit">Edit this envelope</string>
+    <string name="desc_keep_budget_on_empty">When you empty all envelopes this envelope will be spared</string>
     <string name="desc_cancel">Cancel changes</string>
     <string name="desc_done">Save changes</string>
     <string name="desc_envelope_add_space">Add Space between envelopes</string>

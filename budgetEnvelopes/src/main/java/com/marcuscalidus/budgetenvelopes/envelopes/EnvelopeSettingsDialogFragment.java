@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -137,6 +138,7 @@ public class EnvelopeSettingsDialogFragment extends DialogFragment implements
 	private ListView _expensesList;
 	private ImageButton _btnAddPayment;
 	private Spinner _spinnerSetStamp;
+    private CheckBox _cbKeepBudgetOnReset;
 
 	public static EnvelopeSettingsDialogFragment newInstance(
 			EnvelopeDataObject envelope) {
@@ -209,6 +211,10 @@ public class EnvelopeSettingsDialogFragment extends DialogFragment implements
 		_spinnerSetStamp.setAdapter(stampSelector);
 		_spinnerSetStamp.setSelection(stampSelector.getPosition(stampSelector.currentItem));
 
+        _cbKeepBudgetOnReset = (CheckBox) v.findViewById(R.id.checkBoxKeepOnEmpty);
+        _cbKeepBudgetOnReset.setOnHoverListener(TooltipHoverListener.getInstance());
+        _cbKeepBudgetOnReset.setChecked(envelope.getIgnoreOnReset());
+
 		_expensesList = (ListView) v.findViewById(R.id.listViewExpenses);
 	}
 
@@ -221,6 +227,7 @@ public class EnvelopeSettingsDialogFragment extends DialogFragment implements
 
 		envelope.setTitle(_editEnvelopeLabel.getText().toString());
 		envelope.setTabColor(_colorPanelView.getColor());
+        envelope.setIgnoreOnReset(_cbKeepBudgetOnReset.isChecked());
 		
 		StampSelection ssl = (StampSelection) _spinnerSetStamp.getSelectedItem();
 		envelope.setStamp(ssl.getKey());

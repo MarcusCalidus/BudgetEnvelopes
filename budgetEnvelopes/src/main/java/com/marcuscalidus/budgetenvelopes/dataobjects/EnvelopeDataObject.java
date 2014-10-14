@@ -10,6 +10,7 @@ import android.widget.CursorAdapter;
 import android.widget.FilterQueryProvider;
 import android.widget.SimpleCursorAdapter;
 
+import com.google.android.gms.internal.ig;
 import com.marcuscalidus.budgetenvelopes.R;
 import com.marcuscalidus.budgetenvelopes.transactions.TransactionDialogFragment;
 
@@ -30,6 +31,7 @@ public class EnvelopeDataObject extends BaseDataObject {
 	private float _Expenses;
 	private float _Budget;
 	private String _Stamp;
+    private boolean _Ignore_Reset;
 		
 	public static String TABLENAME = "ENVELOPES";
 	
@@ -40,6 +42,7 @@ public class EnvelopeDataObject extends BaseDataObject {
 	public static String  FIELDNAME_EXPENSES = "EXPENSES";
 	public static String  FIELDNAME_BUDGET = "BUDGET";
 	public static String  FIELDNAME_STAMP = "STAMP";
+    public static String  FIELDNAME_IGNORE_RESET = "INGORE_RESET";
 	
 	public static final UUID baseEnvelopeID = UUID.fromString("00000000-0000-0000-0000-000000000000");
 	
@@ -55,6 +58,7 @@ public class EnvelopeDataObject extends BaseDataObject {
 		_Position = 0;
 		_Expenses = 0;
 		_Stamp = "";
+        _Ignore_Reset = false;
 	}
 
 	@Override
@@ -71,6 +75,7 @@ public class EnvelopeDataObject extends BaseDataObject {
 		_Expenses = c.getFloat(c.getColumnIndex(FIELDNAME_EXPENSES))/100;
 		_Budget = c.getFloat(c.getColumnIndex(FIELDNAME_BUDGET))/100;
 		_Stamp = c.getString(c.getColumnIndex(FIELDNAME_STAMP));
+        _Ignore_Reset = c.getInt(c.getColumnIndex(FIELDNAME_IGNORE_RESET)) != 0;
 	}
 	
 	@Override
@@ -174,6 +179,7 @@ public class EnvelopeDataObject extends BaseDataObject {
 		vals.put(FIELDNAME_SPACE_AFTER, _Space_After);
 		vals.put(FIELDNAME_POSITION, _Position);
 		vals.put(FIELDNAME_STAMP, _Stamp);
+        vals.put(FIELDNAME_IGNORE_RESET, _Ignore_Reset);
 		return vals;
 	}
 
@@ -185,6 +191,10 @@ public class EnvelopeDataObject extends BaseDataObject {
 		this._TabColor = tabColor;
 	}
 
+    public boolean getIgnoreOnReset() {return _Ignore_Reset; }
+
+    public void setIgnoreOnReset(boolean ignoreOnReset) { this._Ignore_Reset = ignoreOnReset; }
+
 	@Override
 	protected String[] getFieldNames() {
 		return new String[] {FIELDNAME_TITLE,
@@ -193,7 +203,8 @@ public class EnvelopeDataObject extends BaseDataObject {
 				             FIELDNAME_POSITION,
 				             FIELDNAME_EXPENSES,
 				             FIELDNAME_BUDGET,
-				             FIELDNAME_STAMP};
+				             FIELDNAME_STAMP,
+                             FIELDNAME_IGNORE_RESET};
 	}
 
 	public boolean isSpace_After() {
@@ -355,17 +366,19 @@ public class EnvelopeDataObject extends BaseDataObject {
 	}
 
     public void emptyEnvelope(SQLiteDatabase db) {
-        Resources r = context.getResources();
-        r.getText(R.string.empty_envelopes);
+        if (!this._Ignore_Reset) {
+            Resources r = context.getResources();
+            r.getText(R.string.empty_envelopes);
 
-        TransactionDataObject transaction = new TransactionDataObject(context, null);
-        transaction.setAmount(this.getBudget());
-        transaction.setFromEnvelope(this.getId());
-        transaction.setToEnvelope(baseEnvelopeID);
-        transaction.setTimestamp(new Date());
-        transaction.setText(r.getText(R.string.empty_envelopes).toString());
+            TransactionDataObject transaction = new TransactionDataObject(context, null);
+            transaction.setAmount(this.getBudget());
+            transaction.setFromEnvelope(this.getId());
+            transaction.setToEnvelope(baseEnvelopeID);
+            transaction.setTimestamp(new Date());
+            transaction.setText(r.getText(R.string.empty_envelopes).toString());
 
-        transaction.insertOrReplaceIntoDb(db, true);
+            transaction.insertOrReplaceIntoDb(db, true);
+        }
     }
 
     public static void emptyAllEnvelopes(Context context, SQLiteDatabase db) {

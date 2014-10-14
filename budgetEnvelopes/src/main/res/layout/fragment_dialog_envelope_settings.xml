@@ -174,8 +174,33 @@
                 android:background="@drawable/horizontal_divider" >
             </TableRow>
 
-       
-                <RelativeLayout
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:showDividers="end" >
+
+                <CheckBox
+                    android:id="@+id/checkBoxKeepOnEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_span="4"
+                    android:contentDescription="@string/desc_keep_budget_on_empty"
+                    android:ems="10"
+                    android:hint="@string/keep_budget_on_empty" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="2dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/horizontal_divider" >
+            </TableRow>
+
+
+
+            <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 

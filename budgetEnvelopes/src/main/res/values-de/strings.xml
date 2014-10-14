@@ -14,6 +14,7 @@
     <string name="empty_envelopes_question">Möchtest du wirklich alle Umschläge leeren?</string>
     <string name="envelopelabel">Bezeichnung</string>
     <string name="chooseColor">Wähle Farbe und Marke</string>
+    <string name="keep_budget_on_empty">Umschlag beim entleeren ignorieren</string>
     <string name="done">Fertig</string>
     <string name="execute">Ausführen</string>
     <string name="cancel">Abbrechen</string>
@@ -37,6 +38,7 @@
     <string name="desc_envelope_delete">Lösche diesen Umschlag</string>
     <string name="desc_envelope_stamp">Marke zum verzieren des Umschlages</string>
     <string name="desc_envelope_edit">Bearbeite den Umschlag</string>
+    <string name="desc_keep_budget_on_empty">Dieser Umschlag wird beim Leeren "aller" Umschläge ausgelassen</string>
     <string name="desc_cancel">Änderungen verwerfen</string>
     <string name="desc_done">Änderungen speichern</string>
     <string name="desc_envelope_add_space">Füge einen Zwischenraum ein</string>

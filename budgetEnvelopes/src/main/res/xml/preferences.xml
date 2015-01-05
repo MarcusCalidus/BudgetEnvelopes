@@ -34,6 +34,9 @@
         <Preference android:title="@string/pref_title_privacy"
                 android:key="privacy"
                 android:summary="@string/pref_summ_privacy" />
+        <Preference android:title="@string/pref_title_translate"
+                android:key="translate"
+                android:summary="@string/pref_summ_translate" />
     </PreferenceCategory>
     
 

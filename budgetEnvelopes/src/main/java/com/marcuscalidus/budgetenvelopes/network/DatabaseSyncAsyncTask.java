@@ -198,8 +198,8 @@ public class DatabaseSyncAsyncTask extends BudgetEnvelopesAsyncTask {
 			DBMain.getInstance().getWritableDatabase().execSQL("update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+"=null, "+EnvelopeDataObject.FIELDNAME_EXPENSES+"=null");
 			DBMain.getInstance().getWritableDatabase().execSQL("update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_CHANGED+"=null");
 			DBMain.getInstance().getWritableDatabase().setTransactionSuccessful();
-			DBMain.getInstance().getWritableDatabase().endTransaction();	
-			
+			DBMain.getInstance().getWritableDatabase().endTransaction();
+
 			logMessage(TAG, mContext.getResources().getString(R.string.msg_sync_success));
 			logMessage(TAG, mContext.getResources().getString(R.string.msg_ready_go_back));
 			return true;

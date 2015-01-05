@@ -313,13 +313,15 @@ public class EnvelopeDataObject extends BaseDataObject {
 				" set "+FIELDNAME_EXPENSES+" = "+
 						"(select round(sum("+ExpenseDataObject.FIELDNAME_AMOUNT+")/"+ExpenseDataObject.FIELDNAME_FREQUENCY+")"+
 						" from "+ExpenseDataObject.TABLENAME+
-						" where coalesce("+ExpenseDataObject.FIELDNAME_DELETED+",0)=0)"+
-					" where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";		
+                        " inner join "+EnvelopeDataObject.TABLENAME+" on "+ExpenseDataObject.TABLENAME+"."+ExpenseDataObject.FIELDNAME_ENVELOPE+" = "+EnvelopeDataObject.TABLENAME+".ID"+
+						" where coalesce("+ExpenseDataObject.TABLENAME+"."+ExpenseDataObject.FIELDNAME_DELETED+",0)=0"+
+                        "   and coalesce("+EnvelopeDataObject.TABLENAME+"."+EnvelopeDataObject.FIELDNAME_DELETED+",0)=0)"+
+					" where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";
 
 		result.add("drop trigger if exists UPDATE_"+getTableName()+"_CALC_ENVELOPE");
 
         result.add("create trigger if not exists UPDATE_" + getTableName() + "_CALC_ENVELOPE " +
-                    "after update  of " + FIELDNAME_EXPENSES + "," + FIELDNAME_BUDGET + " on " + getTableName() + " for each row " +
+                    "after update  of " + FIELDNAME_DELETED + "," + FIELDNAME_EXPENSES + "," + FIELDNAME_BUDGET + " on " + getTableName() + " for each row " +
                     "begin" +
                     updateQueryEnvelopeBudget +
                     updateQueryEnvelopeExpense +

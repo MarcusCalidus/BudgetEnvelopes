@@ -56,12 +56,6 @@
         revision="20.0.0"
         sha1="5871fb60dc68d67da54a663c3fd636a10a532948"/>
     <item
-        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-d7ab6858d5f2ef674410257424bd72b627262fdb.jar"
-        jar="/home/mawarm/android-studio/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
-    <item
         dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-1.19.0-497a4b60c78584827ffa14b1bacfbedca111e8bc.jar"
         jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.19.0/cdca49ad0977c040f603478aa2e16b2775c8fec6/google-http-client-1.19.0.jar"
         jumboMode="false"
@@ -80,11 +74,23 @@
         revision="20.0.0"
         sha1="ba2aafb867f6af469f936ae76426cf0a280094bd"/>
     <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-f4155806b59ffd85f5238f7550733611921d93c3.jar"
+        jar="/home/mawarm/android-sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/transcommu-java-sdk-v1-01417a9b695781227e468b15aaea6c7d064b2e7e.jar"
+        jar="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/libs/transcommu-java-sdk-v1.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f3e1a62417f955351f5c0d1c0d000e577ebeafaa"/>
+    <item
         dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/classes-44b74464cac9f2468fca5391f8993e296a20f291.jar"
         jar="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/exploded-aar/BudgetEnvelopes/colorPickerView/unspecified/classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="fa13978d2bf92014e196c444595939a6d2de44da"/>
+        sha1="cf7645a86bb95d149755e7b50643267bdc953bb6"/>
     <item
         dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/gson-2.2.4-82ecec5372629378b475d79bbab7b8af2fb2b177.jar"
         jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"
@@ -121,6 +127,12 @@
         jumboMode="false"
         revision="20.0.0"
         sha1="6a21277d9bebe267b7ddee028b241eebc756c040"/>
+    <item
+        dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/transcommu-android-sdk-v1-4ecfe93918c64b2581805aff36796f7fca7e93f8.jar"
+        jar="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/libs/transcommu-android-sdk-v1.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="00a3b0dc2dc2f810dec1048b123365dbf4cc6879"/>
     <item
         dex="/home/mawarm/AndroidstudioProjects/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.19.0-f9cb9c598380875788b1ad2673116bdcf6d7f3aa.jar"
         jar="/home/mawarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.19.0/81dbf9795d387d5e80e55346582d5f2fb81a42eb/google-http-client-jackson2-1.19.0.jar"

@@ -102,13 +102,20 @@ public class ExpenseDataObject extends BaseDataObject {
 		ArrayList<String> result = super.getTriggers();
 		
 		String updateQueryEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select round(sum("+FIELDNAME_AMOUNT+")/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where "+FIELDNAME_ENVELOPE+"=new."+FIELDNAME_ENVELOPE+" and coalesce("+FIELDNAME_DELETED+",0)=0)  where ID=new."+FIELDNAME_ENVELOPE+"; ";
-		String updateQueryBaseEnvelope = " update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = (select round(sum("+FIELDNAME_AMOUNT+")/"+FIELDNAME_FREQUENCY+") from "+TABLENAME+" where coalesce("+FIELDNAME_DELETED+",0)=0) where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";
+		String updateQueryBaseEnvelope = " update "+EnvelopeDataObject.TABLENAME+
+                                        " set "+EnvelopeDataObject.FIELDNAME_EXPENSES+" = "+
+                                            "(select round(sum("+ExpenseDataObject.FIELDNAME_AMOUNT+")/"+ExpenseDataObject.FIELDNAME_FREQUENCY+")"+
+                                            " from "+ExpenseDataObject.TABLENAME+
+                                            " inner join "+EnvelopeDataObject.TABLENAME+" on "+ExpenseDataObject.TABLENAME+"."+ExpenseDataObject.FIELDNAME_ENVELOPE+" = "+EnvelopeDataObject.TABLENAME+".ID"+
+                                            " where coalesce("+ExpenseDataObject.TABLENAME+"."+ExpenseDataObject.FIELDNAME_DELETED+",0)=0"+
+                                            "   and coalesce("+EnvelopeDataObject.TABLENAME+"."+EnvelopeDataObject.FIELDNAME_DELETED+",0)=0)"+
+                                        " where hex(ID)='"+EnvelopeDataObject.castUUIDAsHexString(EnvelopeDataObject.baseEnvelopeID)+"'; ";
 
 		result.add("drop trigger if exists INSERT_"+getTableName()+"_CALC_ENVELOPE_EXPENSES");
 		result.add("drop trigger if exists UPDATE_"+getTableName()+"_CALC_ENVELOPE_EXPENSES");
 		
 		result.add("create trigger if not exists UPDATE_"+getTableName()+"_CALC_ENVELOPE_EXPENSES " +
-				"after update of "+FIELDNAME_AMOUNT+" on " + getTableName() + " for each row " +
+				"after update of "+FIELDNAME_DELETED+","+FIELDNAME_AMOUNT+" on " + getTableName() + " for each row " +
 				"begin" +
 				updateQueryEnvelope +
 				updateQueryBaseEnvelope +

@@ -109,7 +109,10 @@
     <string name="pref_title_privacy">Datenschutzerklärung</string>
     <string name="pref_summ_privacy">Was macht die App mit meinen Daten?</string>
     <string name="pref_link_privacy">https://sites.google.com/site/budgetenvelopesapp/home/manual/privacy-policy</string>
-    
+    <string name="pref_summ_translate">übersetzte die App bei transcommu</string>
+    <string name="pref_title_translate">Hilf mit, die App zu übersetzen</string>
+
+
     <string name="desc_transaction_to_folder">In welchen Umschlag soll der Betrag umgebucht werden</string>    
     <string name="desc_transaction_pending">Setze diesen Wert auf "Ein", wenn das Geld ausgegeben wurde, das Bankkonto aber noch nicht belastet ist</string>    
     <string name="overdrawn">über zogen</string>

@@ -188,6 +188,7 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
     
  	@Override
     protected void onPostExecute(Boolean result) {
+        getGoogleApiClient().disconnect();
         super.onPostExecute(result);
     	if (getOnExecuteListener() != null) {
     		getOnExecuteListener().notifyPostExecute(mContext, result);

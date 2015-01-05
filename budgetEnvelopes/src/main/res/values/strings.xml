@@ -110,7 +110,10 @@
     <string name="pref_title_privacy">Privacy Statement</string>
     <string name="pref_summ_privacy">What does the App do with my data?</string>
     <string name="pref_link_privacy">https://sites.google.com/site/budgetenvelopesapp/home/manual/privacy-policy</string>
-    
+    <string name="pref_summ_translate">translate this app using transcommu</string>
+    <string name="pref_title_translate">Help translate this app</string>
+
+
     <string name="desc_transaction_to_folder">into which folder shall the money be transferred</string>    
     <string name="desc_transaction_pending">set to true if you paid for something but your account has not yet been debited</string>    
     <string name="overdrawn">over drawn</string>    

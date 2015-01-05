@@ -16,7 +16,7 @@ import java.util.UUID;
 
 public class DatabaseDefinition extends SQLiteOpenHelper {
 
-	private static final int DATABASE_VERSION = 7;
+	private static final int DATABASE_VERSION = 8;
 	
 	private final BaseDataObject[] dataObjects = { 
 			new SettingsDataObject(null, null),
@@ -56,6 +56,13 @@ public class DatabaseDefinition extends SQLiteOpenHelper {
 
             onCreate(db);
         }
+
+        db.execSQL("update " + ExpenseDataObject.TABLENAME +
+                   " set " + ExpenseDataObject.FIELDNAME_DELETED + " = 1 "+
+                   " where coalesce("+ExpenseDataObject.TABLENAME+"."+ExpenseDataObject.FIELDNAME_DELETED+",0)=0 "+
+                   " and (select coalesce("+EnvelopeDataObject.TABLENAME+"."+EnvelopeDataObject.FIELDNAME_DELETED+",0)"+
+                         " from "+EnvelopeDataObject.TABLENAME+
+                         " where "+EnvelopeDataObject.TABLENAME+".ID = "+ExpenseDataObject.TABLENAME+"."+ExpenseDataObject.FIELDNAME_ENVELOPE+") <> 0");
 	}
 	
 	public Boolean cleanup() {

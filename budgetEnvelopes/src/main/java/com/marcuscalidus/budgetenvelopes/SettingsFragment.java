@@ -16,6 +16,7 @@ import android.preference.PreferenceManager;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.marcuscalidus.budgetenvelopes.dataobjects.SettingsDataObject;
 import com.marcuscalidus.budgetenvelopes.db.DBMain;
+import com.yasesprox.android.transcommusdk.TransCommuActivity;
 
 
 public class SettingsFragment extends PreferenceFragment {
@@ -62,16 +63,27 @@ public class SettingsFragment extends PreferenceFragment {
 		                    return true;
 		                }
 		            });
-		
+
 		button = (Preference)findPreference("privacy");
 		button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
 		                @Override
-		                public boolean onPreferenceClick(Preference pref) { 
-		                	startActivity(new Intent(Intent.ACTION_VIEW, 
+		                public boolean onPreferenceClick(Preference pref) {
+		                	startActivity(new Intent(Intent.ACTION_VIEW,
 		                		    Uri.parse(getActivity().getResources().getString(R.string.pref_link_privacy))));
 		                    return true;
 		                }
 		            });
+
+        button = (Preference)findPreference("translate");
+        button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference pref) {
+                Intent intent = new Intent(BudgetEnvelopes.getAppContext(), TransCommuActivity.class);
+                intent.putExtra(TransCommuActivity.APPLICATION_CODE_EXTRA, "LZToVmhhWy");
+                startActivity(intent);
+                return true;
+            }
+        });
 		  
 		EditTextPreference editTextPreference = (EditTextPreference) findPreference(SettingsDataObject.UUID_CURRENCY_SYMBOL.toString());
 		if (editTextPreference != null) {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.marcuscalidus.budgetenvelopes"
-    android:versionCode="22"
-    android:versionName="1.1.5" >
+    android:versionCode="23"
+    android:versionName="1.1.6" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -53,6 +53,11 @@
             android:name="com.marcuscalidus.budgetenvelopes.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
+
+        <activity android:name="com.yasesprox.android.transcommusdk.TransCommuActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
+        <activity android:name="com.yasesprox.android.transcommusdk.LoginActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
+        <activity android:name="com.yasesprox.android.transcommusdk.CreateAccountActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
+        <activity android:name="com.yasesprox.android.transcommusdk.TranslateActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
     </application>
 
 </manifest>

@@ -67,7 +67,7 @@ public class DatabaseSyncAsyncTask extends BudgetEnvelopesAsyncTask {
 		for (int i=0; i < alm.size(); i++) {
 			if (i>backupCount - 1) {
 				String s = alm.get(i).getTitle();
-				
+
 				if (deleteContents(Drive.DriveApi.getFile(getGoogleApiClient(), alm.get(i).getDriveId()))) {
 					logMessage(TAG, String.format(mContext.getResources().getString(R.string.msg_file_delete_success), s));
 				} else {
@@ -155,7 +155,7 @@ public class DatabaseSyncAsyncTask extends BudgetEnvelopesAsyncTask {
 			
 			Calendar cal = Calendar.getInstance();
 			String backupName = String.format(Locale.GERMAN, "BACKUP_%04d%02d%02d_%02d%02d%02d", 
-					cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH),
+					cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + 1, cal.get(Calendar.DAY_OF_MONTH),
 					cal.get(Calendar.HOUR_OF_DAY),cal.get(Calendar.MINUTE),cal.get(Calendar.SECOND));
 			
 			logMessage(TAG, mContext.getResources().getString(R.string.msg_attempt_file_upload)+" - "+backupName);

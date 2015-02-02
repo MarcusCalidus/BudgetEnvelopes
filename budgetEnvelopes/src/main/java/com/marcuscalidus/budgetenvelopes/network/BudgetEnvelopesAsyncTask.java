@@ -6,7 +6,8 @@ import android.util.Log;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.drive.Contents;
 import com.google.android.gms.drive.Drive;
-import com.google.android.gms.drive.DriveApi.ContentsResult;
+import com.google.android.gms.drive.DriveApi.DriveContentsResult;
+import com.google.android.gms.drive.DriveContents;
 import com.google.android.gms.drive.DriveFile;
 import com.google.android.gms.drive.DriveFolder.DriveFileResult;
 import com.google.android.gms.drive.DriveFolder.DriveFolderResult;
@@ -249,8 +250,8 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	              //  .setMimeType(mimeType)
 	                .build();
 				
-				ContentsResult contentsResult =
-	                    Drive.DriveApi.newContents(getGoogleApiClient()).await();
+				DriveContentsResult contentsResult =
+	                    Drive.DriveApi.newDriveContents(getGoogleApiClient()).await();
 	            if (!contentsResult.getStatus().isSuccess()) {
 	                // We failed, stop the task and return.
 	                return null;
@@ -258,7 +259,7 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 				
 				DriveFileResult fileResult = Drive.DriveApi
 						.getFolder(getGoogleApiClient(), getFolderDriveID())
-		        	.createFile(getGoogleApiClient(), fileMetadata, contentsResult.getContents()).await();
+		        	.createFile(getGoogleApiClient(), fileMetadata, contentsResult.getDriveContents()).await();
 				
 				return fileResult.getDriveFile();
 			} else {
@@ -278,10 +279,10 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	    	return null;
 	    }
 	    
-	    ContentsResult contentsResult =
-	    remoteFile.openContents(getGoogleApiClient(), DriveFile.MODE_WRITE_ONLY, null).await();
+	    DriveContentsResult contentsResult =
+	    remoteFile.open(getGoogleApiClient(), DriveFile.MODE_WRITE_ONLY, null).await();
 	    if (contentsResult.getStatus().isSuccess()) {
-	        Contents contents = contentsResult.getContents();
+	        DriveContents contents = contentsResult.getDriveContents();
 	        
 	        try {
 		        OutputStream oStream = contents.getOutputStream();
@@ -295,11 +296,13 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 		        }
 		        fStream.close();
 		        oStream.close();
-		   
-		        remoteFile.commitAndCloseContents(getGoogleApiClient(), contents).await();
+
+                contents.commit(getGoogleApiClient(), null).await();
+		        //remoteFile.commitAndCloseContents(getGoogleApiClient(), contents).await();
 	        }
 	        catch (Exception e) {
-	        	remoteFile.discardContents(getGoogleApiClient(), contents).await();
+	        	contents.discard(getGoogleApiClient());
+	        	//remoteFile.discardContents(getGoogleApiClient(), contents).await();
 	        	logMessage(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling));
 	        	throw e;
 	        }	        
@@ -338,10 +341,10 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	    	return null;
 	    }
 	       
-	    ContentsResult contentsResult =
-	    remoteFile.openContents(getGoogleApiClient(), DriveFile.MODE_READ_ONLY, null).await();
+	    DriveContentsResult contentsResult =
+	    remoteFile.open(getGoogleApiClient(), DriveFile.MODE_READ_ONLY, null).await();
 	    if (contentsResult.getStatus().isSuccess()) {
-	        Contents contents = contentsResult.getContents();
+	        DriveContents contents = contentsResult.getDriveContents();
 	        
 	        try {
 	        	BufferedInputStream iStream = new BufferedInputStream(contents.getInputStream());
@@ -355,11 +358,13 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 		        }
 		        fStream.close();
 		        iStream.close();
-		   
-		        remoteFile.discardContents(getGoogleApiClient(), contents).await();
+
+                contents.discard(getGoogleApiClient());
+                //remoteFile.discardContents(getGoogleApiClient(), contents).await();
 	        }
 	        catch (Exception e) {
-	        	remoteFile.discardContents(getGoogleApiClient(), contents).await();
+                contents.discard(getGoogleApiClient());
+	        	//remoteFile.discardContents(getGoogleApiClient(), contents).await();
 	        	logMessage(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling));
 	        	throw e;
 	        }	        

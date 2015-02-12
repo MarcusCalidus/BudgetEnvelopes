@@ -44,18 +44,18 @@
         <dex dex="C:\Users\MaWarm\Documents\BudgetEnvelopes\budgetenvelopes\budgetEnvelopes\build\intermediates\pre-dexed\debug\google-oauth-client-1.19.0-da9df53a2215796b01e397a08f1d1d173099133c.jar" />
     </item>
     <item
-        jar="C:\Users\MaWarm\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
-        <dex dex="C:\Users\MaWarm\Documents\BudgetEnvelopes\budgetenvelopes\budgetEnvelopes\build\intermediates\pre-dexed\debug\gson-2.3-d92c2b214f0545932e0283c403f09dea5242b40f.jar" />
-    </item>
-    <item
         jar="C:\Users\MaWarm\Documents\BudgetEnvelopes\budgetenvelopes\budgetEnvelopes\build\intermediates\exploded-aar\budgetenvelopes\colorPickerView\unspecified\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="d91821f116889f4ab2c7cd0e5489847142e185c9">
         <dex dex="C:\Users\MaWarm\Documents\BudgetEnvelopes\budgetenvelopes\budgetEnvelopes\build\intermediates\pre-dexed\debug\classes-2eb07fbff706e9ca04654dbd33f4df0f5fbd6433.jar" />
+    </item>
+    <item
+        jar="C:\Users\MaWarm\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
+        <dex dex="C:\Users\MaWarm\Documents\BudgetEnvelopes\budgetenvelopes\budgetEnvelopes\build\intermediates\pre-dexed\debug\gson-2.3-d92c2b214f0545932e0283c403f09dea5242b40f.jar" />
     </item>
     <item
         jar="C:\Users\MaWarm\Documents\BudgetEnvelopes\budgetenvelopes\budgetEnvelopes\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"

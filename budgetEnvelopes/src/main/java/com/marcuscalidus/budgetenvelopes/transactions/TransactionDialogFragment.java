@@ -378,12 +378,12 @@ public class TransactionDialogFragment extends DialogFragment implements OnClick
 		EditText editAmount = (EditText) getView().findViewById(R.id.editAmount);
 		Switch switchPending = (Switch) getView().findViewById(R.id.switchPending);
 		
-		float valueAmount = 0; 
+		double valueAmount = 0;
 		try {
-			valueAmount = BudgetEnvelopes.parseFloatSafe(editAmount.getText().toString());
+			valueAmount = BudgetEnvelopes.parseDoubleSafe(editAmount.getText().toString());
 		} catch(Exception e) {}
 		
-		if ((valueAmount <= 0) || (Float.isNaN(valueAmount))) {
+		if ((valueAmount <= 0) || (Double.isNaN(valueAmount))) {
 			AlertDialog alertDialog = new AlertDialog.Builder(this.getActivity()).create();
 			alertDialog.setTitle(res.getString(R.string.error_title));
 			alertDialog.setMessage(res.getString(R.string.error_invalid_amount));
@@ -422,7 +422,7 @@ public class TransactionDialogFragment extends DialogFragment implements OnClick
 			}
 		}
 
-		trans.setAmount(BudgetEnvelopes.parseFloatSafe(editAmount.getText().toString()));
+		trans.setAmount(BudgetEnvelopes.parseDoubleSafe(editAmount.getText().toString()));
 		trans.setText(editDescription.getText().toString());
 		trans.setTimestamp(getDateEditValue());
 		trans.setPending(switchPending.isChecked());

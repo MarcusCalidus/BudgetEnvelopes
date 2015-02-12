@@ -41,7 +41,7 @@ public class EnvelopeListArrayAdapter extends ArrayAdapter<EnvelopeDataObject> {
 	    this.values = values;
 	  }
 	  
-	  private class InitIncomeExpenseAsync extends AsyncTask<Context, Void, SparseArray<Float>> {
+	  private class InitIncomeExpenseAsync extends AsyncTask<Context, Void, SparseArray<Double>> {
 			private Calendar fromDate, toDate;
 			private View view;
 
@@ -68,14 +68,14 @@ public class EnvelopeListArrayAdapter extends ArrayAdapter<EnvelopeDataObject> {
 			}
 			
 			@Override
-			protected SparseArray<Float> doInBackground(Context... params) {
+			protected SparseArray<Double> doInBackground(Context... params) {
 				DBMain db = DBMain.getInstance();
 				
 				return TransactionDataObject.getIncomeExpenseDetailBetween(params[0], db.getReadableDatabase(), fromDate, toDate);
 			}
 			
 			@Override
-			protected void onPostExecute(SparseArray<Float> result) {
+			protected void onPostExecute(SparseArray<Double> result) {
 				String currencySymbol = BudgetEnvelopes.getCurrentSettingValue(SettingsDataObject.UUID_CURRENCY_SYMBOL, "");
 				
 				TextView tv = (TextView) view.findViewById(R.id.TextViewIncomeMonth);
@@ -137,7 +137,7 @@ public class EnvelopeListArrayAdapter extends ArrayAdapter<EnvelopeDataObject> {
 			    textView.setText(String.format("%.2f",values.get(position).getExpenses()) + " " + currencySymbol);
 			    
 			    textView = (TextView) rowView.findViewById(R.id.textViewTotalCredit);
-			    Float f = EnvelopeDataObject.queryTotalCredit(context, DBMain.getInstance().getReadableDatabase());
+			    Double f = EnvelopeDataObject.queryTotalCredit(context, DBMain.getInstance().getReadableDatabase());
 			    textView.setText(String.format("%.2f",f) + " " + currencySymbol);
 	    	}
 	    	else {	

@@ -126,7 +126,12 @@ public class SyncActivity extends Activity
 					showToolbar();
 				}
 			});
-		 	dbSyncTask.execute();
+            try {
+                dbSyncTask.execute();
+            } catch (Exception e) {
+                logMessage(e.getMessage());
+            }
+
 		 	break;
 		case EXTRA_ASYNC_REQUEST_RESTORE : 
 			DatabaseRestoreAsyncTask dbRestoreTask = BudgetEnvelopes.getInstance().getRestoreTask(mGoogleApiClient);
@@ -201,7 +206,7 @@ public class SyncActivity extends Activity
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
-		case R.id.btnSync :		
+		case R.id.btnSync :
 			this.getIntent().putExtra(EXTRA_CURRENT_ASYNC_REQUEST, EXTRA_ASYNC_REQUEST_SYNC_N_BACKUP);
 	        mGoogleApiClient.connect();
 			break;

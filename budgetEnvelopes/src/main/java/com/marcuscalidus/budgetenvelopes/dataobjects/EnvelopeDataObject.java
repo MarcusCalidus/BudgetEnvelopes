@@ -28,8 +28,8 @@ public class EnvelopeDataObject extends BaseDataObject {
 	private int _TabColor;
 	private boolean _Space_After;
 	private int _Position;
-	private float _Expenses;
-	private float _Budget;
+	private double _Expenses;
+	private double _Budget;
 	private String _Stamp;
     private boolean _Ignore_Reset;
 		
@@ -72,8 +72,8 @@ public class EnvelopeDataObject extends BaseDataObject {
 		_TabColor = c.getInt(c.getColumnIndex(FIELDNAME_TABCOLOR));
 		_Position = c.getInt(c.getColumnIndex(FIELDNAME_POSITION));	
 		_Space_After = c.getInt(c.getColumnIndex(FIELDNAME_SPACE_AFTER)) != 0;
-		_Expenses = c.getFloat(c.getColumnIndex(FIELDNAME_EXPENSES))/100;
-		_Budget = c.getFloat(c.getColumnIndex(FIELDNAME_BUDGET))/100;
+		_Expenses = c.getInt(c.getColumnIndex(FIELDNAME_EXPENSES))/100.0;
+		_Budget = c.getInt(c.getColumnIndex(FIELDNAME_BUDGET))/100.0;
 		_Stamp = c.getString(c.getColumnIndex(FIELDNAME_STAMP));
         _Ignore_Reset = c.getInt(c.getColumnIndex(FIELDNAME_IGNORE_RESET)) != 0;
 	}
@@ -95,11 +95,9 @@ public class EnvelopeDataObject extends BaseDataObject {
 		}
 	}
 	
-	public float getBudget() {
-		return _Budget;
-	}
+	public double getBudget() { return _Budget; }
 	
-	public float getExpenses() {
+	public double getExpenses() {
 		return _Expenses;
 	}
 	
@@ -271,13 +269,13 @@ public class EnvelopeDataObject extends BaseDataObject {
         return envelope;
     }
 	
-	public static Float queryTotalCredit(Context context, SQLiteDatabase db) {
-		Float result = (float) 0;
+	public static Double queryTotalCredit(Context context, SQLiteDatabase db) {
+		Double result = (double) 0;
 		String selectQuery = "select sum("+FIELDNAME_BUDGET+") from "+TABLENAME+" where coalesce("+FIELDNAME_DELETED+",0)=0;";
 		Cursor c = db.rawQuery(selectQuery, null);
 		
 		if (c.moveToFirst()) {
-			result = c.getFloat(0) / 100;
+			result = c.getDouble(0) / 100.0;
 		}
 		return result;		
 	}

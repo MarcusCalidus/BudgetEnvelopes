@@ -90,7 +90,7 @@ public class ExpensesListArrayAdapter extends ArrayAdapter<ExpenseDataObject>
 	public void onFocusChange(View v, boolean hasFocus) {
 		if (!hasFocus) {
 			if (v.getId() == R.id.textEditAmount) {
-				((ExpenseDataObject) v.getTag()).setAmount(BudgetEnvelopes.parseFloatSafe(((EditText) v).getText().toString()));
+				((ExpenseDataObject) v.getTag()).setAmount(BudgetEnvelopes.parseDoubleSafe(((EditText) v).getText().toString()));
 			}
 			else
 			if (v.getId() == R.id.textEditLabel) {

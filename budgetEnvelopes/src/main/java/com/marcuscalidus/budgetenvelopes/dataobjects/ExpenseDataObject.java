@@ -31,13 +31,13 @@ public class ExpenseDataObject extends BaseDataObject {
 
 	private UUID _Envelope;
 	private String _Label;
-	private float _Amount;
+	private double _Amount;
 	private int _Frequency;
 	
 	@Override
 	protected void initializeFromCursor(Cursor c) {
 		_Label = c.getString(c.getColumnIndex(FIELDNAME_LABEL));
-		_Amount = c.getFloat(c.getColumnIndex(FIELDNAME_AMOUNT)) / 100;
+		_Amount =  c.getInt(c.getColumnIndex(FIELDNAME_AMOUNT)) / 100.0;
 		_Frequency = c.getInt(c.getColumnIndex(FIELDNAME_FREQUENCY));
 		_Envelope = castBlobAsUUID(c.getBlob(c.getColumnIndex(FIELDNAME_ENVELOPE)));
 	}
@@ -70,11 +70,11 @@ public class ExpenseDataObject extends BaseDataObject {
 		this._Envelope = _Envelope;
 	}
 
-	public float getAmount() {
+	public double getAmount() {
 		return _Amount;
 	}
 
-	public void setAmount(Float _Amount) {
+	public void setAmount(double _Amount) {
 		this._Amount = _Amount;
 	}
 

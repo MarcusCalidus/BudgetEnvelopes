@@ -36,7 +36,7 @@ public class DatabaseRestoreAsyncTask extends BudgetEnvelopesAsyncTask implement
 	
 	@Override
 	protected void onCancelled (Boolean result) {
-		logMessage(TAG, mContext.getResources().getString(R.string.operation_cancelled));
+		logMessage(TAG, mContext.getResources().getString(R.string.operation_cancelled), true);
 	}
 	
 	
@@ -113,32 +113,32 @@ public class DatabaseRestoreAsyncTask extends BudgetEnvelopesAsyncTask implement
 			String backupDbPath = mContext.getDatabasePath(backupDbName).toString();
 			String mainDbPath = mContext.getDatabasePath(DBMain.DATABASE_NAME).toString();
 			
-			logMessage(TAG, mContext.getResources().getString(R.string.msg_attempt_file_download)+" - "+backupDbName);
+			logMessage(TAG, mContext.getResources().getString(R.string.msg_attempt_file_download)+" - "+backupDbName, false);
 			
 			String localFile = downloadFile(backupDbPath, backupDbName, "application/x-sqlite3");
 			
 			if (localFile == null) {
-				logMessage(TAG, mContext.getResources().getString(R.string.msg_error_db_broken)+" - "+backupDbName);
+				logMessage(TAG, mContext.getResources().getString(R.string.msg_error_db_broken)+" - "+backupDbName, false);
 			} else {
-				logMessage(TAG, mContext.getResources().getString(R.string.msg_downloaded_file)+" - "+backupDbName);
+				logMessage(TAG, mContext.getResources().getString(R.string.msg_downloaded_file)+" - "+backupDbName, false);
 			}
 			
 			if (isCancelled()) {
 				return false;
 			}
 									
-			logMessage(TAG, mContext.getResources().getString(R.string.msg_attempt_file_upload)+" - "+backupDbName+" -> "+syncDbName);
+			logMessage(TAG, mContext.getResources().getString(R.string.msg_attempt_file_upload)+" - "+backupDbName+" -> "+syncDbName, false);
 				
 			if (uploadFile(backupDbPath, syncDbName, "application/x-sqlite3") == null) {
-				logMessage(TAG, mContext.getResources().getString(R.string.msg_error_upload_file)+" - "+backupDbName+" -> "+syncDbName);
+				logMessage(TAG, mContext.getResources().getString(R.string.msg_error_upload_file)+" - "+backupDbName+" -> "+syncDbName, false);
 				return false;
 			}	
-			logMessage(TAG, mContext.getResources().getString(R.string.msg_uploaded_file)+" - "+backupDbName+" -> "+syncDbName);
+			logMessage(TAG, mContext.getResources().getString(R.string.msg_uploaded_file)+" - "+backupDbName+" -> "+syncDbName, false);
 									
 			DBMain.getInstance().getWritableDatabase().execSQL("vacuum"); 
 			DBMain.getInstance().getWritableDatabase().close();
 					
-			logMessage(TAG, mContext.getResources().getString(R.string.msg_attempt_file_cleanup));
+			logMessage(TAG, mContext.getResources().getString(R.string.msg_attempt_file_cleanup), false);
 			
 			File f = new File(mainDbPath);
 			if (f.exists())
@@ -152,13 +152,13 @@ public class DatabaseRestoreAsyncTask extends BudgetEnvelopesAsyncTask implement
 			f = new File(backupDbPath);
 				f.renameTo(newFile);
 
-			logMessage(TAG, mContext.getResources().getString(R.string.msg_copied_file)+" - "+syncDbName+" -> "+DBMain.DATABASE_NAME);		
+			logMessage(TAG, mContext.getResources().getString(R.string.msg_copied_file)+" - "+syncDbName+" -> "+DBMain.DATABASE_NAME, false);
 				
 			f=new File(backupDbPath+"-journal");
 			if (f.exists())
 				f.delete();
 			
-			logMessage(TAG, mContext.getResources().getString(R.string.msg_attempt_db_cleanup)+" - "+DBMain.DATABASE_NAME);
+			logMessage(TAG, mContext.getResources().getString(R.string.msg_attempt_db_cleanup)+" - "+DBMain.DATABASE_NAME, false);
 			
 			DBMain.getInstance().getWritableDatabase().beginTransaction();
 			DBMain.getInstance().getWritableDatabase().execSQL("update "+EnvelopeDataObject.TABLENAME+" set "+EnvelopeDataObject.FIELDNAME_EXPENSES+"=null, "+EnvelopeDataObject.FIELDNAME_EXPENSES+"=null");
@@ -166,12 +166,12 @@ public class DatabaseRestoreAsyncTask extends BudgetEnvelopesAsyncTask implement
 			DBMain.getInstance().getWritableDatabase().setTransactionSuccessful();
 			DBMain.getInstance().getWritableDatabase().endTransaction();			
 			
-			logMessage(TAG, mContext.getResources().getString(R.string.msg_restore_success));
-			logMessage(TAG, mContext.getResources().getString(R.string.msg_ready_go_back));
+			logMessage(TAG, mContext.getResources().getString(R.string.msg_restore_success), false);
+			logMessage(TAG, mContext.getResources().getString(R.string.msg_ready_go_back), false);
 			return true;
 		} catch (Exception e) {
-			logMessage(TAG, mContext.getResources().getString(R.string.msg_error_general));
-			logMessage(TAG, e.getMessage());
+			logMessage(TAG, mContext.getResources().getString(R.string.msg_error_general), false);
+			logMessage(TAG, e.getMessage(), false);
 			return false;
 		}
 	}
@@ -185,7 +185,7 @@ public class DatabaseRestoreAsyncTask extends BudgetEnvelopesAsyncTask implement
 				backupDbName = (String) lw.getAdapter().getItem(lw.getCheckedItemPosition());
 				super.execute();		
 			} else {
-				logMessage(TAG, mContext.getResources().getString(R.string.msg_error_no_selection));
+				logMessage(TAG, mContext.getResources().getString(R.string.msg_error_no_selection), false);
 				getGoogleApiClient().disconnect();
 				getOnExecuteListener().notifyPostExecute(mContext, false);
 			}

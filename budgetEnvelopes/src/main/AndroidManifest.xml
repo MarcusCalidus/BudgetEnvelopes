@@ -54,6 +54,18 @@
             android:label="@string/title_activity_settings" >
         </activity>
 
+        <service
+            android:name=".network.BudgetEnvelopesSyncService"
+            android:icon="@drawable/refresh_icon"
+            android:label="BudgetEnvelopesSyncService">
+        </service>
+
+        <receiver android:name=".network.AutoStart">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <activity android:name="com.yasesprox.android.transcommusdk.TransCommuActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
         <activity android:name="com.yasesprox.android.transcommusdk.LoginActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>
         <activity android:name="com.yasesprox.android.transcommusdk.CreateAccountActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"></activity>

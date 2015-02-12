@@ -101,8 +101,8 @@ public class DistributionDialogFragment extends DialogFragment implements OnClic
 		db.beginTransaction();
 		
 		EnvelopeDataObject baseEnvelope = EnvelopeDataObject.getBaseEnvelope(getActivity(), db);
-		float toDistribute = baseEnvelope.getBudget();
-		float totalExpenses = baseEnvelope.getExpenses();
+		double toDistribute = baseEnvelope.getBudget();
+		double totalExpenses = baseEnvelope.getExpenses();
 		
 		if ((toDistribute <= 0) || (totalExpenses <= 0)) 
 			return;
@@ -110,14 +110,14 @@ public class DistributionDialogFragment extends DialogFragment implements OnClic
 		List<EnvelopeDataObject> envelopes = EnvelopeDataObject.getAllEnvelopes(getActivity(), db, false, false);
 		
 		for (EnvelopeDataObject envelope : envelopes) {
-			float percent = envelope.getExpenses() / totalExpenses;
+			double percent = envelope.getExpenses() / totalExpenses;
 			
 			TransactionDataObject transaction = new TransactionDataObject(getActivity(), null);
 			transaction.setFromEnvelope(baseEnvelope.getId());
 			transaction.setToEnvelope(envelope.getId());
 			transaction.setText(getActivity().getResources().getString(R.string.transaction_text_budget));
 			transaction.setTimestamp(new Date());
-			transaction.setAmount((float)Math.floor(100*toDistribute*percent)/100);
+			transaction.setAmount((double)Math.floor(100*toDistribute*percent)/100);
 			
 			transaction.insertOrReplaceIntoDb(db, false);			
 		}
@@ -133,8 +133,8 @@ public class DistributionDialogFragment extends DialogFragment implements OnClic
 		db.beginTransaction();
 		
 		EnvelopeDataObject baseEnvelope = EnvelopeDataObject.getBaseEnvelope(getActivity(), db);
-		float toDistribute = baseEnvelope.getBudget();
-		float totalExpenses = baseEnvelope.getExpenses();
+		double toDistribute = baseEnvelope.getBudget();
+		double totalExpenses = baseEnvelope.getExpenses();
 		
 		if ((toDistribute <= 0) || (totalExpenses <= 0)) 
 			return;
@@ -145,7 +145,7 @@ public class DistributionDialogFragment extends DialogFragment implements OnClic
 			if (toDistribute <= 0)
 				break;
 			
-			float amount = (float)Math.floor(100 * Math.min(toDistribute, envelope.getExpenses()))/100; 
+			double amount = (double)Math.floor(100 * Math.min(toDistribute, envelope.getExpenses()))/100;
 			toDistribute -= amount;
 			
 			TransactionDataObject transaction = new TransactionDataObject(getActivity(), null);

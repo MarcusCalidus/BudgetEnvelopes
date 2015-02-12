@@ -3,6 +3,7 @@ package com.marcuscalidus.budgetenvelopes;
 import android.app.Application;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask.Status;
@@ -11,6 +12,7 @@ import android.preference.PreferenceManager;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.marcuscalidus.budgetenvelopes.db.DBMain;
 import com.marcuscalidus.budgetenvelopes.network.BudgetEnvelopesAsyncTask;
+import com.marcuscalidus.budgetenvelopes.network.BudgetEnvelopesSyncService;
 import com.marcuscalidus.budgetenvelopes.network.DatabaseRestoreAsyncTask;
 import com.marcuscalidus.budgetenvelopes.network.DatabaseSyncAsyncTask;
 import com.marcuscalidus.budgetenvelopes.transactions.TransactionDialogFragment.OnTransactionUpdateListener;
@@ -41,6 +43,8 @@ public class BudgetEnvelopes extends Application {
 		BudgetEnvelopes.context = getApplicationContext();
 		BudgetEnvelopes.instance = this;	
 		DBMain.initPreferencesFromDb();
+
+        startService(new Intent(this, BudgetEnvelopesSyncService.class));
     }
 	
 	public static BudgetEnvelopes getInstance() {
@@ -73,19 +77,19 @@ public class BudgetEnvelopes extends Application {
 	    }
 	}
 	
-	public static Float parseFloatSafe(String s){
-        Float val=Float.valueOf(0);
+	public static Double parseDoubleSafe(String s){
+        Double val=Double.valueOf(0);
         try{
-            val=Float.valueOf(s);
+            val=Double.valueOf(s);
         }catch(NumberFormatException ex){
             DecimalFormat df=new DecimalFormat();
-             Number n=null;
+            Number n=null;
             try {
                   n=df.parse(s);
             } catch (ParseException e) {
             }
             if(n!=null)
-                val=n.floatValue();
+                val=n.doubleValue();
         }
         return val;
     }

@@ -1,5 +1,7 @@
 package com.marcuscalidus.budgetenvelopes.network;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.util.Log;
 
@@ -27,6 +29,7 @@ import com.marcuscalidus.budgetenvelopes.R;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -43,6 +46,7 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	private com.google.api.services.drive.Drive mGoogleDriveService;
 	private com.google.api.client.googleapis.extensions.android.gms.auth.GoogleAccountCredential mGoogleAccountCredentials;
 
+    NotificationManager mNotificationManager;
 	
 	protected Context mContext;
 	
@@ -57,19 +61,59 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	
 	private OnNotificationListener mOnExecuteListener;
 	private OnLogMessageListener mOnLogMessageListener;
-	
-	protected void logMessage(String tag, String message) {
-		publishProgress(message);
-		Log.d(tag, message);
-		
-		return;
-	}
+    private String mLongMessage = "";
+
+    protected void logMessage(String tag, String message, boolean doNotify) {
+        publishProgress(message);
+        Log.d(tag, message);
+
+        if (doNotify) {
+            mLongMessage = String.format("%s %s\n", mLongMessage, message);
+
+            Notification n = new Notification.Builder(mContext)
+                    .setContentTitle("BudgetEnvelopesSync")
+                    .setOngoing(true)
+                    .setContentText(message)
+                    .setStyle(new Notification.BigTextStyle().bigText(mLongMessage))
+                    .setSmallIcon(R.drawable.refresh_icon)
+                    .build();
+
+            mNotificationManager.notify(0, n);
+        }
+        return;
+    }
+
+    protected void logMessageCancelable(String tag, String message, boolean doNotify) {
+        publishProgress(message);
+        Log.d(tag, message);
+
+        if (doNotify) {
+            mLongMessage = String.format("%s %s\n", mLongMessage, message);
+
+            Notification n = new Notification.Builder(mContext)
+                    .setContentTitle(tag)
+                    .setOngoing(false)
+                    .setContentText(message)
+                    .setStyle(new Notification.BigTextStyle().bigText(mLongMessage))
+                    .setSmallIcon(R.drawable.refresh_icon)
+                            //.setContentIntent(pIntent)
+                            //.setAutoCancel(true)
+                            //     .addAction(R.drawable.icon, "Call", pIntent)
+                            //     .addAction(R.drawable.icon, "More", pIntent)
+                            //     .addAction(R.drawable.icon, "And more", pIntent)
+                    .build();
+
+            mNotificationManager.notify(0, n);
+        }
+        return;
+    }
 	
 	public BudgetEnvelopesAsyncTask(Context context,
 			GoogleApiClient googleApiClient) {
 		super(context, googleApiClient);
 		mContext = context;
-		
+        mNotificationManager = (NotificationManager)  context.getSystemService(context.NOTIFICATION_SERVICE);
+
 		// build RESTFul (DriveSDKv2) service to fall back to for DELETE
 	    mGoogleAccountCredentials =
 	    GoogleAccountCredential
@@ -152,7 +196,7 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	                   .createFolder(getGoogleApiClient(), changeSet).await();
 			
 		if (!folderResult.getStatus().isSuccess()) {
-				logMessage(TAG, mContext.getResources().getString(R.string.msg_error_no_create_remote_folder));
+            logMessageCancelable(TAG, mContext.getResources().getString(R.string.msg_error_no_create_remote_folder), true);
 				return null;
 		}
 		else {
@@ -165,9 +209,9 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	
     protected boolean syncDrive() {
     	com.google.android.gms.common.api.Status res = Drive.DriveApi.requestSync(getGoogleApiClient()).await();
-    	if (!res.isSuccess()) { 
-    		logMessage(TAG, mContext.getResources().getString(R.string.msg_error_request_sync_gdrive));
-    		logMessage(TAG, res.getStatus().toString());
+    	if (!res.isSuccess()) {
+            logMessageCancelable(TAG, mContext.getResources().getString(R.string.msg_error_request_sync_gdrive), true);
+            logMessageCancelable(TAG, res.getStatus().getStatusMessage(), true);
     		return false;
     	}
     	return true;
@@ -271,11 +315,11 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 		}
 	}
 
-	protected Metadata uploadFile(String localFileName, String remoteFileName, String mimeType) throws Exception {           
+	protected Metadata uploadFile(String localFileName, String remoteFileName, String mimeType) throws Exception {
 	    DriveFile remoteFile = getRemoteFile(remoteFileName, mimeType, true);
 	    
 	    if (remoteFile == null) {
-	    	logMessage(TAG, mContext.getResources().getString(R.string.msg_error_create_remote_file));
+            logMessageCancelable(TAG, mContext.getResources().getString(R.string.msg_error_create_remote_file), true);
 	    	return null;
 	    }
 	    
@@ -303,12 +347,12 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	        catch (Exception e) {
 	        	contents.discard(getGoogleApiClient());
 	        	//remoteFile.discardContents(getGoogleApiClient(), contents).await();
-	        	logMessage(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling));
+                logMessageCancelable(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling), true);
 	        	throw e;
 	        }	        
 	        
 	    } else {
-	    	logMessage(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling) + " - error write access");
+            logMessageCancelable(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling) + " - error write access", true);
 	    	throw new Exception(contentsResult.getStatus().toString());
 	    }
 	    	
@@ -333,11 +377,12 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	    outStream.close();
 	}
 
+
 	protected String downloadFile(String localFileName, String remoteFileName, String mimeType) throws Exception {        
 	    DriveFile remoteFile = getRemoteFile(remoteFileName, mimeType, false);
 	            
 	    if (remoteFile == null) {
-	    	logMessage(TAG, mContext.getResources().getString(R.string.msg_no_file_download));
+            logMessageCancelable(TAG, mContext.getResources().getString(R.string.msg_no_file_download), true);
 	    	return null;
 	    }
 	       
@@ -365,12 +410,12 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
 	        catch (Exception e) {
                 contents.discard(getGoogleApiClient());
 	        	//remoteFile.discardContents(getGoogleApiClient(), contents).await();
-	        	logMessage(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling));
+	        	logMessageCancelable(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling), true);
 	        	throw e;
 	        }	        
 	        
 	    } else {
-	    	logMessage(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling) + " - open remote");
+            logMessageCancelable(TAG, mContext.getResources().getString(R.string.msg_error_contents_handling) + " - open remote", true);
 	    	throw new Exception(contentsResult.getStatus().toString());
 	    }	  		
 		

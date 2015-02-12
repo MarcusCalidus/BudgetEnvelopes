@@ -38,6 +38,7 @@ public abstract class ApiClientAsyncTask<Params, Progress, Result>
                 latch.countDown();
             }
         });
+
         mClient.registerConnectionFailedListener(new OnConnectionFailedListener() {
             @Override
             public void onConnectionFailed(ConnectionResult arg0) {

@@ -4,7 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
+import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -174,6 +176,13 @@ public abstract class BaseDataObject {
 	    	 db.setTransactionSuccessful();
 	    	 db.endTransaction();
 	     }
+
+        File f = context.getFileStreamPath("localSyncToken");
+        if (f.exists()) {
+            if (!f.delete()) {
+                Toast.makeText(context, "could not be deleted", Toast.LENGTH_LONG).show();
+            }
+        }
 	}
 	
 	public String getTag() {

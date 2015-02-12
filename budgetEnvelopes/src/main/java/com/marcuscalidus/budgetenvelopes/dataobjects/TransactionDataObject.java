@@ -37,7 +37,7 @@ public class TransactionDataObject extends BaseDataObject {
     public static String FIELDNAME_ATTACHMENT = "ATTACHMENT";
 
     private String _Text;
-	private Float _Amount;
+	private Double _Amount;
 	private Calendar _Timestamp;
 	private UUID _FromEnvelope;
 	private UUID _ToEnvelope;
@@ -47,7 +47,7 @@ public class TransactionDataObject extends BaseDataObject {
 	@Override
 	protected void initializeFromCursor(Cursor c) {
         _Text = c.getString(c.getColumnIndex(FIELDNAME_TEXT));
-		_Amount = c.getFloat(c.getColumnIndex(FIELDNAME_AMOUNT)) / 100;
+		_Amount = c.getInt(c.getColumnIndex(FIELDNAME_AMOUNT)) / 100.0;
 		_Pending =  c.getInt(c.getColumnIndex(FIELDNAME_PENDING)) != 0;
         _Attachment = c.getString(c.getColumnIndex(FIELDNAME_ATTACHMENT));
 		_FromEnvelope = castBlobAsUUID(c.getBlob(c.getColumnIndex(FIELDNAME_FROM_ENVELOPE)));
@@ -87,11 +87,11 @@ public class TransactionDataObject extends BaseDataObject {
 		this._Text = _Text;
 	}
 
-	public Float getAmount() {
+	public Double getAmount() {
 		return _Amount;
 	}
 
-	public void setAmount(Float _Amount) {
+	public void setAmount(Double _Amount) {
 		this._Amount = _Amount;
 	}
 
@@ -215,13 +215,13 @@ public class TransactionDataObject extends BaseDataObject {
 	public static int KEY_EXPENSE = 0;
 	public static int KEY_INCOME = 1;
 	
-	public static SparseArray<Float> getIncomeExpenseDetailBetween(Context context, SQLiteDatabase db, Calendar fromDate, Calendar toDate) {
-		SparseArray<Float> result = new SparseArray<Float>();
+	public static SparseArray<Double> getIncomeExpenseDetailBetween(Context context, SQLiteDatabase db, Calendar fromDate, Calendar toDate) {
+		SparseArray<Double> result = new SparseArray<Double>();
 		
         String fromDateString = String.valueOf(fromDate.getTimeInMillis());
         String toDateString = String.valueOf(toDate.getTimeInMillis());
         
-        String selectQuery = "select sum("+FIELDNAME_AMOUNT+")/100 from "+TABLENAME+
+        String selectQuery = "select sum("+FIELDNAME_AMOUNT+")/100.0 from "+TABLENAME+
         		             " where "+FIELDNAME_TIMESTAMP+" >= "+fromDateString+
         		             " and "+FIELDNAME_TIMESTAMP+" <= "+toDateString+
         		             " and coalesce("+FIELDNAME_FROM_ENVELOPE+",0)=0"+
@@ -231,10 +231,10 @@ public class TransactionDataObject extends BaseDataObject {
         Cursor c = db.rawQuery(selectQuery, null);
  
         if (c.moveToFirst()) {
-            result.put(KEY_INCOME, c.getFloat(0));
+            result.put(KEY_INCOME, c.getDouble(0));
         }
 		
-        selectQuery = "select sum("+FIELDNAME_AMOUNT+")/100 from "+TABLENAME+
+        selectQuery = "select sum("+FIELDNAME_AMOUNT+")/100.0 from "+TABLENAME+
 	             " where "+FIELDNAME_TIMESTAMP+" between "+fromDateString+" and "+toDateString+
 	             " and coalesce("+FIELDNAME_TO_ENVELOPE+",0)=0"+
 	             " and coalesce("+FIELDNAME_DELETED+", 0) = 0"+ 
@@ -243,7 +243,7 @@ public class TransactionDataObject extends BaseDataObject {
         c = db.rawQuery(selectQuery, null);
 
         if (c.moveToFirst()) {
-        	result.put(KEY_EXPENSE, c.getFloat(0));
+        	result.put(KEY_EXPENSE, c.getDouble(0));
         }
 		return result;
 	}

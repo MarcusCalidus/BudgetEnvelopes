@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/budgetEnvelopes/budgetEnvelopes.iml" filepath="$PROJECT_DIR$/budgetEnvelopes/budgetEnvelopes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/budgetenvelopes.iml" filepath="$PROJECT_DIR$/budgetenvelopes.iml" />
       <module fileurl="file://$PROJECT_DIR$/colorPickerView/colorPickerView.iml" filepath="$PROJECT_DIR$/colorPickerView/colorPickerView.iml" />
     </modules>
   </component>

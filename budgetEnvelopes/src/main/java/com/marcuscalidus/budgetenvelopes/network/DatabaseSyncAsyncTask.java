@@ -105,18 +105,25 @@ public class DatabaseSyncAsyncTask extends BudgetEnvelopesAsyncTask {
             remoteToken.append(buffer, 0, n);
         }
 
-        tokenFileName = mContext.getFileStreamPath("localSyncToken").toString();
-        tokenStream = new FileInputStream(tokenFileName);
-        tokenReader = new InputStreamReader(tokenStream);
+        File f = mContext.getFileStreamPath("localSyncToken");
+        if (f.exists()) {
+            tokenFileName = f.toString();
 
-        StringBuffer localToken = new StringBuffer("");
+            tokenStream = new FileInputStream(tokenFileName);
+            tokenReader = new InputStreamReader(tokenStream);
 
-        while ((n = tokenReader.read(buffer)) != -1)
-        {
-            localToken.append(new String(buffer, 0, n));
+            StringBuffer localToken = new StringBuffer("");
+
+            while ((n = tokenReader.read(buffer)) != -1) {
+                localToken.append(new String(buffer, 0, n));
+            }
+
+            return !remoteToken.toString().contentEquals(localToken.toString());
         }
-
-        return !remoteToken.toString().contentEquals(localToken.toString());
+        else
+        {
+            return true;
+        }
     }
 
 

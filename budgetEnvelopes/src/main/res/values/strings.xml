@@ -112,6 +112,8 @@
     <string name="pref_link_privacy">https://sites.google.com/site/budgetenvelopesapp/home/manual/privacy-policy</string>
     <string name="pref_summ_translate">translate this app using transcommu</string>
     <string name="pref_title_translate">Help translate this app</string>
+    <string name="pref_title_sync_on_start">Sync on start</string>
+    <string name="pref_summ_sync_on_start">Start synchronization whenever the app starts</string>
 
 
     <string name="desc_transaction_to_folder">into which folder shall the money be transferred</string>    

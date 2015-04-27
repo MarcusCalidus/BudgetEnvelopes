@@ -60,16 +60,16 @@ public class BudgetEnvelopesSyncService extends Service implements GoogleApiClie
         return Service.START_NOT_STICKY;
     }
 
-    @Override
-    public void onDestroy() {
+   // @Override
+   // public void onDestroy() {
         // I want to restart this service again in one hour
-        AlarmManager alarm = (AlarmManager)getSystemService(ALARM_SERVICE);
-        alarm.set(
-                alarm.RTC_WAKEUP,
-                System.currentTimeMillis() + (1000 * 60 * 60),
-                PendingIntent.getService(this, 0, new Intent(this, BudgetEnvelopesSyncService.class), 0)
-        );
-    }
+   //     AlarmManager alarm = (AlarmManager)getSystemService(ALARM_SERVICE);
+   //     alarm.set(
+   //             alarm.RTC_WAKEUP,
+   //             System.currentTimeMillis() + (1000 * 60 * 60),
+   //             PendingIntent.getService(this, 0, new Intent(this, BudgetEnvelopesSyncService.class), 0)
+   //     );
+   // }
 
     @Override
     public void onConnected(Bundle bundle) {

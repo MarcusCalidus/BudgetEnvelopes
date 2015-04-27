@@ -25,7 +25,8 @@ public class SettingsDataObject extends BaseDataObject {
 	
 	public static final UUID UUID_SYNC_ACCOUNT = UUID.fromString("00000000-0000-0000-0000-000000000001");	
 	public static final UUID UUID_CURRENCY_SYMBOL = UUID.fromString("00000000-0000-0000-0000-000000000002");
-	public static final UUID UUID_BACKUP_COUNT = UUID.fromString("00000000-0000-0000-0000-000000000003");
+    public static final UUID UUID_BACKUP_COUNT = UUID.fromString("00000000-0000-0000-0000-000000000003");
+    public static final UUID UUID_SYNC_ON_START = UUID.fromString("00000000-0000-0000-0000-000000000004");
 	
 	private final String FIELDNAME_VALUE = "VALUE";
 
@@ -54,7 +55,7 @@ public class SettingsDataObject extends BaseDataObject {
 	public String getValue() {
 		return _Value;
 	}
-
+	
 	public void setValue(String _Value) {
 		this._Value = _Value;
 	}

@@ -24,6 +24,12 @@
             android:title="@string/pref_title_backup_count"
             android:summary="@string/pref_summ_backup_count"
             android:inputType="number" />
+
+        <CheckBoxPreference
+            android:key="00000000-0000-0000-0000-000000000004"
+            android:title="@string/pref_title_sync_on_start"
+            android:defaultValue="false"
+            android:summary="@string/pref_summ_sync_on_start" />
     </PreferenceCategory>
     
     <PreferenceCategory

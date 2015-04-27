@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -33,10 +34,14 @@ public class SettingsFragment extends PreferenceFragment {
 		sdo = SettingsDataObject.getSetting(BudgetEnvelopes.getAppContext(), db, SettingsDataObject.UUID_CURRENCY_SYMBOL);
 		sdo.setValue(prefs.getString(SettingsDataObject.UUID_CURRENCY_SYMBOL.toString(), ""));
 		sdo.insertOrReplaceIntoDb(db, true);
-		
-		sdo = SettingsDataObject.getSetting(BudgetEnvelopes.getAppContext(), db, SettingsDataObject.UUID_BACKUP_COUNT);
-		sdo.setValue(prefs.getString(SettingsDataObject.UUID_BACKUP_COUNT.toString(), "5"));
-		sdo.insertOrReplaceIntoDb(db, true);
+
+        sdo = SettingsDataObject.getSetting(BudgetEnvelopes.getAppContext(), db, SettingsDataObject.UUID_BACKUP_COUNT);
+        sdo.setValue(prefs.getString(SettingsDataObject.UUID_BACKUP_COUNT.toString(), "5"));
+        sdo.insertOrReplaceIntoDb(db, true);
+
+        sdo = SettingsDataObject.getSetting(BudgetEnvelopes.getAppContext(), db, SettingsDataObject.UUID_SYNC_ON_START);
+        sdo.setValue(Boolean.toString(prefs.getBoolean(SettingsDataObject.UUID_SYNC_ON_START.toString(), false)));
+        sdo.insertOrReplaceIntoDb(db, true);
 	}
 		
 	@Override 
@@ -84,7 +89,7 @@ public class SettingsFragment extends PreferenceFragment {
                 return true;
             }
         });
-		  
+
 		EditTextPreference editTextPreference = (EditTextPreference) findPreference(SettingsDataObject.UUID_CURRENCY_SYMBOL.toString());
 		if (editTextPreference != null) {
 			editTextPreference.setSummary(editTextPreference.getSummary()+" "+BudgetEnvelopes.getCurrentSettingValue(SettingsDataObject.UUID_CURRENCY_SYMBOL, ""));

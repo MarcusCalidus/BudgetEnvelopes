@@ -10,6 +10,7 @@ import android.os.AsyncTask.Status;
 import android.preference.PreferenceManager;
 
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.marcuscalidus.budgetenvelopes.dataobjects.SettingsDataObject;
 import com.marcuscalidus.budgetenvelopes.db.DBMain;
 import com.marcuscalidus.budgetenvelopes.network.BudgetEnvelopesAsyncTask;
 import com.marcuscalidus.budgetenvelopes.network.BudgetEnvelopesSyncService;
@@ -20,6 +21,7 @@ import com.marcuscalidus.budgetenvelopes.transactions.TransactionDialogFragment.
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -44,7 +46,10 @@ public class BudgetEnvelopes extends Application {
 		BudgetEnvelopes.instance = this;	
 		DBMain.initPreferencesFromDb();
 
-        startService(new Intent(this, BudgetEnvelopesSyncService.class));
+        if (getCurrentSettingValue(SettingsDataObject.UUID_SYNC_ON_START, false))
+        {
+            startService(new Intent(this, BudgetEnvelopesSyncService.class));
+        }
     }
 	
 	public static BudgetEnvelopes getInstance() {
@@ -109,11 +114,16 @@ public class BudgetEnvelopes extends Application {
 	public static OnTransactionUpdateListener getOnTransactionUpdateListener() {
 		return onTransactionUpdateListener;
 	}
-	
-	public static String getCurrentSettingValue(UUID setting, String defaultValue) {
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(BudgetEnvelopes.getAppContext());
-		return prefs.getString(setting.toString(), defaultValue);
-	}
+
+    public static String getCurrentSettingValue(UUID setting, String defaultValue) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(BudgetEnvelopes.getAppContext());
+        return prefs.getString(setting.toString(), defaultValue);
+    }
+
+    public static boolean getCurrentSettingValue(UUID setting, Boolean defaultValue) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(BudgetEnvelopes.getAppContext());
+        return prefs.getBoolean(setting.toString(), defaultValue);
+    }
 
 	public static void setOnTransactionUpdateListener(
 			OnTransactionUpdateListener onTransactionUpdateListener) {

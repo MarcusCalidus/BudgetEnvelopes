@@ -75,7 +75,7 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
                     .setOngoing(true)
                     .setContentText(message)
                     .setStyle(new Notification.BigTextStyle().bigText(mLongMessage))
-                    .setSmallIcon(R.drawable.refresh_icon)
+                    .setSmallIcon(R.drawable.refresh_icon_bw)
                     .build();
 
             mNotificationManager.notify(0, n);
@@ -95,7 +95,7 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
                     .setOngoing(false)
                     .setContentText(message)
                     .setStyle(new Notification.BigTextStyle().bigText(mLongMessage))
-                    .setSmallIcon(R.drawable.refresh_icon)
+                    .setSmallIcon(R.drawable.refresh_icon_bw)
                             //.setContentIntent(pIntent)
                             //.setAutoCancel(true)
                             //     .addAction(R.drawable.icon, "Call", pIntent)

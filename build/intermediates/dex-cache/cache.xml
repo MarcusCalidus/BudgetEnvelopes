@@ -37,18 +37,18 @@
         <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/transcommu-android-sdk-v1-4b141f22f3909e31faa33d777a500c98d403cb0c.jar" />
     </item>
     <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-d48265a9eae2ab7af4c1f620caa0c2be226f1047.jar" />
-    </item>
-    <item
         jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.19.0/81dbf9795d387d5e80e55346582d5f2fb81a42eb/google-http-client-jackson2-1.19.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="81dbf9795d387d5e80e55346582d5f2fb81a42eb">
         <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.19.0-d9d595a92333e04476d061313bacae324ef5fc7c.jar" />
+    </item>
+    <item
+        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-d48265a9eae2ab7af4c1f620caa0c2be226f1047.jar" />
     </item>
     <item
         jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.19.0/e3f11020c2c812112803d252d1392872d3f619c8/google-http-client-android-1.19.0.jar"

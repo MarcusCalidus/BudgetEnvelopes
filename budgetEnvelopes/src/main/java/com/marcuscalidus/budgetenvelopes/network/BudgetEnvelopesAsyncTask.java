@@ -71,7 +71,7 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
             mLongMessage = String.format("%s %s\n", mLongMessage, message);
 
             Notification n = new Notification.Builder(mContext)
-                    .setContentTitle("BudgetEnvelopesSync")
+                    .setContentTitle("BudgetEnvelopes Sync")
                     .setOngoing(true)
                     .setContentText(message)
                     .setStyle(new Notification.BigTextStyle().bigText(mLongMessage))
@@ -91,7 +91,7 @@ public class BudgetEnvelopesAsyncTask extends ApiClientAsyncTask<Void, String, B
             mLongMessage = String.format("%s %s\n", mLongMessage, message);
 
             Notification n = new Notification.Builder(mContext)
-                    .setContentTitle(tag)
+                    .setContentTitle("BudgetEnvelopes Sync")
                     .setOngoing(false)
                     .setContentText(message)
                     .setStyle(new Notification.BigTextStyle().bigText(mLongMessage))

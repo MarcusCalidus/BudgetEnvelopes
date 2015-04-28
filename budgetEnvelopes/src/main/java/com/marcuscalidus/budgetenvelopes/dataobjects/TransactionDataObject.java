@@ -69,7 +69,7 @@ public class TransactionDataObject extends BaseDataObject {
 	@Override
 	protected ContentValues getContentValues() {
 		ContentValues vals = new ContentValues();
-		vals.put(FIELDNAME_AMOUNT, (int)(_Amount * 100));
+		vals.put(FIELDNAME_AMOUNT, Math.round(_Amount * 100));
 		vals.put(FIELDNAME_FROM_ENVELOPE, castUUIDAsBlob(getFromEnvelope()));
 		vals.put(FIELDNAME_TO_ENVELOPE, castUUIDAsBlob(getToEnvelope()));
 		vals.put(FIELDNAME_PENDING, _Pending);

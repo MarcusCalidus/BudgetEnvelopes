@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Rect;
@@ -197,6 +198,24 @@ public class MainActivity extends Activity implements
 			break;
 		}
 	}
+
+    @Override
+    public void openOptionsMenu() {
+
+        Configuration config = getResources().getConfiguration();
+
+        if((config.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
+                > Configuration.SCREENLAYOUT_SIZE_LARGE) {
+
+            int originalScreenLayout = config.screenLayout;
+            config.screenLayout = Configuration.SCREENLAYOUT_SIZE_LARGE;
+            super.openOptionsMenu();
+            config.screenLayout = originalScreenLayout;
+
+        } else {
+            super.openOptionsMenu();
+        }
+    }
 
 	private void startSyncActivity() {
 		Intent sac = new

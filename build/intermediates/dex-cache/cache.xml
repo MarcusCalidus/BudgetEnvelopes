@@ -2,165 +2,211 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.android/build-cache/953b699f44c1ded4e5f983c82e76d68d33707fae/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/classes_2f77ba7b8994d4eeb4cd3556889c5d9e4d10d839.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.19.0/e3f11020c2c812112803d252d1392872d3f619c8/google-http-client-android-1.19.0.jar"
         jumboMode="false"
-        revision="20.0.0"
+        optimize="true"
+        revision="25.0.0"
         sha1="e3f11020c2c812112803d252d1392872d3f619c8">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-android-1.19.0_6c3c26c40224566ed394c152bba257ccff72a42c.jar" />
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-android-1.19.0_6c3c26c40224566ed394c152bba257ccff72a42c.jar" />
     </item>
     <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/com.android.support-support-v13-20.0.0_a8cd129579860d73b6a30740e5c8665749d1813c.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/13.0/381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7/guava-jdk5-13.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/guava-jdk5-13.0_d9d81ab51d76c648df2014166126d4cc058a81e4.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/support-annotations-21.0.0_528afd49005ec8320f1fbe050aea22ca06a88d21.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.19.0/81dbf9795d387d5e80e55346582d5f2fb81a42eb/google-http-client-jackson2-1.19.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="81dbf9795d387d5e80e55346582d5f2fb81a42eb">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.19.0_d9d595a92333e04476d061313bacae324ef5fc7c.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.19.0/ba2aafb867f6af469f936ae76426cf0a280094bd/google-api-client-android-1.19.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="ba2aafb867f6af469f936ae76426cf0a280094bd">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-api-client-android-1.19.0_da583c847e17c1de0bab7cd2c158e6c93bf81b21.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/libs/transcommu-android-sdk-v1.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="00a3b0dc2dc2f810dec1048b123365dbf4cc6879">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/transcommu-android-sdk-v1_4b141f22f3909e31faa33d777a500c98d403cb0c.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/jackson-core-2.1.3_4583ea83fbc6423883f569615f51a429ecf7b9d1.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-gson/1.19.0/b3cdefb990d5212bb2a130525b20e2c44aeffc4c/google-http-client-gson-1.19.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="b3cdefb990d5212bb2a130525b20e2c44aeffc4c">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-gson-1.19.0_b7e019be71a69f12a815a4c1dddd2d178071a116.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.19.0/d473a8962e14a707a3716637e4898bb2dd9643f2/google-oauth-client-1.19.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="d473a8962e14a707a3716637e4898bb2dd9643f2">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-oauth-client-1.19.0_1c8f55260755a8d91dbef544dcee4d4862c8ba68.jar" />
-    </item>
-    <item
+        is-multidex="false"
         jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.apis/google-api-services-drive/v2-rev139-1.19.0/2df393e09308c0008570ef5341ffdf050b9ea5a0/google-api-services-drive-v2-rev139-1.19.0.jar"
         jumboMode="false"
-        revision="20.0.0"
+        optimize="true"
+        revision="25.0.0"
         sha1="2df393e09308c0008570ef5341ffdf050b9ea5a0">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-api-services-drive-v2-rev139-1.19.0_675040d98e4524525acd0deade0468beddec9311.jar" />
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-api-services-drive-v2-rev139-1.19.0_675040d98e4524525acd0deade0468beddec9311.jar" />
     </item>
     <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/com.android.support-support-v4-21.0.0_1794e787b0a66831b584fd3f861e08c81c382428.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/libs/transcommu-java-sdk-v1.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="f3e1a62417f955351f5c0d1c0d000e577ebeafaa">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/transcommu-java-sdk-v1_ce7d5218b727b569970fc4c4cc85ca092466dd52.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/exploded-aar/com.android.support/support-v13/20.0.0/jars/libs/internal_impl-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/internal_impl-20.0.0_808d38704e9a6f4169c786004c3083d101da0d68.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/libs/multiwindow-v1.0.2.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="329ad833ab5b4af8b673ed3f8f7f2891fa7ddcc0">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/multiwindow-v1.0.2_8143510733e9cad9e64ff34568ee5bb46209afd3.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/jars/libs/internal_impl-21.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/internal_impl-21.0.0_4aff0f787ceb7a3ab46f24deb0ddd59c8718b7ea.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/exploded-aar/budgetenvelopes/colorPickerView/unspecified/jars/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="6ee43027643fc4cd51765e1c4a1dd4b5480ee7c3">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/budgetenvelopes-colorPickerView-unspecified_7d4c264fd21280570991490cc4d216bb51a53985.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/libs/sdk-v1.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="e2ce3786b6e9519934c4a54aaaaf39525bf4486c">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/sdk-v1.0.0_7a8966178bd2cbe4df21c67017cf245a47743be0.jar" />
-    </item>
-    <item
-        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.19.0/6a21277d9bebe267b7ddee028b241eebc756c040/google-api-client-1.19.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="6a21277d9bebe267b7ddee028b241eebc756c040">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-api-client-1.19.0_e0bb459f6c46d0d710c5a6dc81a162274c4ef4af.jar" />
-    </item>
-    <item
+        is-multidex="false"
         jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
         jumboMode="false"
-        revision="20.0.0"
+        optimize="true"
+        revision="25.0.0"
         sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/jsr305-3.0.0_acccf21c16d74edea7d2fa9e793878799edf4730.jar" />
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/jsr305-3.0.0_acccf21c16d74edea7d2fa9e793878799edf4730.jar" />
     </item>
     <item
-        jar="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/jars/classes.jar"
+        is-multidex="false"
+        jar="/Users/marcowarm/.android/build-cache/a5ec19ad81c9e50a941e38bf9e1e2a988d4a643e/output/jars/libs/internal_impl-20.0.0.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-6.5.87_7c66e08c26dec5013c5ee25ffac351687452ab2e.jar" />
+        optimize="true"
+        revision="25.0.0"
+        sha1="27bbd3982cdfe4468a9bf99c8c773734a9049e33">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/internal_impl-20.0.0_1f367a8c49246cc697cc0339203f2ac3d362934f.jar" />
     </item>
     <item
+        is-multidex="false"
+        jar="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/libs/sdk-v1.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e2ce3786b6e9519934c4a54aaaaf39525bf4486c">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/sdk-v1.0.0_89fa2bc0f9ad6921ea8a994b63667b3162efab9a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/libs/transcommu-android-sdk-v1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="00a3b0dc2dc2f810dec1048b123365dbf4cc6879">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/transcommu-android-sdk-v1_2f493ebc71279e12ce2bd3359a51d8b73bf723d2.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.19.0/cdca49ad0977c040f603478aa2e16b2775c8fec6/google-http-client-1.19.0.jar"
         jumboMode="false"
-        revision="20.0.0"
+        optimize="true"
+        revision="25.0.0"
         sha1="cdca49ad0977c040f603478aa2e16b2775c8fec6">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-1.19.0_f16dd72cc9645197e38bfab36b289b0ab72f2c32.jar" />
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-1.19.0_f16dd72cc9645197e38bfab36b289b0ab72f2c32.jar" />
     </item>
     <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.19.0/81dbf9795d387d5e80e55346582d5f2fb81a42eb/google-http-client-jackson2-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="81dbf9795d387d5e80e55346582d5f2fb81a42eb">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.19.0_d9d595a92333e04476d061313bacae324ef5fc7c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-gson/1.19.0/b3cdefb990d5212bb2a130525b20e2c44aeffc4c/google-http-client-gson-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b3cdefb990d5212bb2a130525b20e2c44aeffc4c">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-http-client-gson-1.19.0_b7e019be71a69f12a815a4c1dddd2d178071a116.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.android/build-cache/a5ec19ad81c9e50a941e38bf9e1e2a988d4a643e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e128103d5281ddd26195a7f980b36d0d005a4e56">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/classes_ccb63e080431ece9d3871b8532c826c569cfa5c2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/13.0/381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7/guava-jdk5-13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/guava-jdk5-13.0_d9d81ab51d76c648df2014166126d4cc058a81e4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/Development/BudgetEnvelopes/colorPickerView/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="99f375ef116940748d948d56f39238a59e0fac6f">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/classes_0de163202671112e44e626e2732be5b77b384f50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/jackson-core-2.1.3_4583ea83fbc6423883f569615f51a429ecf7b9d1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.19.0/ba2aafb867f6af469f936ae76426cf0a280094bd/google-api-client-android-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ba2aafb867f6af469f936ae76426cf0a280094bd">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-api-client-android-1.19.0_da583c847e17c1de0bab7cd2c158e6c93bf81b21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.android/build-cache/49d4399154b1b820d384b3f700103e49560cff2c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/classes_09b2adc47d696241bde70900334b2c9d14e8057a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.19.0/d473a8962e14a707a3716637e4898bb2dd9643f2/google-oauth-client-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d473a8962e14a707a3716637e4898bb2dd9643f2">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-oauth-client-1.19.0_1c8f55260755a8d91dbef544dcee4d4862c8ba68.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3/5fc52c41ef0239d1093a1eb7c3697036183677ce/gson-2.3.jar"
         jumboMode="false"
-        revision="20.0.0"
+        optimize="true"
+        revision="25.0.0"
         sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
-        <dex dex="/Users/marcowarm/Development/MarcusCalidus/budgetenvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/gson-2.3_efacfa826369563915282f3d1aabcfa8328240b1.jar" />
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/gson-2.3_efacfa826369563915282f3d1aabcfa8328240b1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/libs/transcommu-java-sdk-v1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f3e1a62417f955351f5c0d1c0d000e577ebeafaa">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/transcommu-java-sdk-v1_3264ccbbf3dc9647668739015b507fbac587bea2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.19.0/6a21277d9bebe267b7ddee028b241eebc756c040/google-api-client-1.19.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6a21277d9bebe267b7ddee028b241eebc756c040">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/google-api-client-1.19.0_e0bb459f6c46d0d710c5a6dc81a162274c4ef4af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/support-annotations-21.0.0_528afd49005ec8320f1fbe050aea22ca06a88d21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/libs/multiwindow-v1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="329ad833ab5b4af8b673ed3f8f7f2891fa7ddcc0">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/multiwindow-v1.0.2_0785abbf6d2a1a19b9b581109b44b988eb9d9432.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/marcowarm/.android/build-cache/49d4399154b1b820d384b3f700103e49560cff2c/output/jars/libs/internal_impl-21.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="/Users/marcowarm/Development/BudgetEnvelopes/budgetEnvelopes/build/intermediates/pre-dexed/debug/internal_impl-21.0.0_8ffe6e3a6f419b60625d928f5ee5e04a186043af.jar" />
     </item>
 
 </items>

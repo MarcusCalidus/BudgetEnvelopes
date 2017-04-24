@@ -52,14 +52,11 @@ import com.marcuscalidus.budgetenvelopes.transactions.TransactionDialogFragment.
 import com.marcuscalidus.budgetenvelopes.transactions.TransactionListArrayAdapter;
 import com.marcuscalidus.budgetenvelopes.transactions.TransactionsMonthsAdapter;
 import com.marcuscalidus.budgetenvelopes.widgets.TooltipHoverListener;
-import com.samsung.android.sdk.multiwindow.SMultiWindow;
-import com.samsung.android.sdk.multiwindow.SMultiWindowActivity;
-import com.samsung.android.sdk.multiwindow.SMultiWindowActivity.StateChangeListener;
 
 import java.util.List;
 
 public class MainActivity extends Activity implements 
-		OnItemClickListener, StateChangeListener, OnClickListener, OnTransactionUpdateListener, OnItemLongClickListener, OnEnvelopeSettingsChangedListener {
+		OnItemClickListener, OnClickListener, OnTransactionUpdateListener, OnItemLongClickListener, OnEnvelopeSettingsChangedListener {
 
 	private static final String ARGUMENT_ENVELOPE_UUID = "last_envelope_uuid";
 
@@ -67,8 +64,6 @@ public class MainActivity extends Activity implements
 	private int _maxLeft;
 	private int _minLeft;
 	private int _transactionListDefaultLeft;
-	private SMultiWindow _multiWindow;
-	private SMultiWindowActivity _multiWindowActivity;
 	
 	private ViewPager bookingsViewPager;
 
@@ -89,12 +84,7 @@ public class MainActivity extends Activity implements
 				
 				int screenWidth;
 				
-				if (_multiWindowActivity != null) {
-					screenWidth = _multiWindowActivity.getRectInfo().width();
-				}
-				else {
-					screenWidth = getResources().getDisplayMetrics().widthPixels;
-				}
+  				screenWidth = getResources().getDisplayMetrics().widthPixels;
 				
 				view.animate().x(screenWidth).alpha(0).start();
 				_lastEnvelope = null;
@@ -148,19 +138,6 @@ public class MainActivity extends Activity implements
 		EnvelopeListFragment envelopes = (EnvelopeListFragment) getFragmentManager().findFragmentById(R.id.list_view_envelopes);
 		envelopes.getListView().setOnItemClickListener(this);
 		envelopes.getListView().setOnItemLongClickListener(this);
-		
-		
-		_multiWindow = new SMultiWindow();
-
-		try {
-    		_multiWindow.initialize(this);
-    		if (_multiWindow.isFeatureEnabled(SMultiWindow.MULTIWINDOW)) {
-    			_multiWindowActivity = new SMultiWindowActivity(this);
-    			_multiWindowActivity.setStateChangeListener(this);
-    		}
-    	} catch (Exception e) {
-    		_multiWindow = null;
-    	}
 	}
 
 	@Override
@@ -421,12 +398,7 @@ public class MainActivity extends Activity implements
 		
 		final int screenWidth;
 		
-		if (_multiWindowActivity != null) {
-			screenWidth = _multiWindowActivity.getRectInfo().width();
-		}
-		else {
-			screenWidth = getResources().getDisplayMetrics().widthPixels;
-		}
+		screenWidth = getResources().getDisplayMetrics().widthPixels;
 		
 		int typicalListWidth = layoutParamsEnvelopeList.width+layoutParamsEnvelopeList.leftMargin;
 		
@@ -582,7 +554,7 @@ public class MainActivity extends Activity implements
 	private EnvelopeDataObject getLastEnvelope() {
 		return _lastEnvelope;
 	}
-
+/*
 	@Override
 	public void onModeChanged(boolean arg0) {
 		reinitGUI();	
@@ -597,7 +569,7 @@ public class MainActivity extends Activity implements
 	public void onZoneChanged(int arg0) {
 		reinitGUI();			
 	}
-
+*/
 	@Override
 	public void onTransactionUpdate(TransactionDataObject transaction) {
 		initBookingListFromLastEnvelope();

@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="google-http-client-gson-1.19.0">
+  <library name="com.google.http-client:google-http-client-gson:1.19.0@jar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-gson/1.19.0/b3cdefb990d5212bb2a130525b20e2c44aeffc4c/google-http-client-gson-1.19.0.jar!/" />
     </CLASSES>

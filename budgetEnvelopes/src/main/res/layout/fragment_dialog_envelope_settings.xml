@@ -1,13 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/rounded_corner_box" >
+    android:layout_height="match_parent"
+    android:background="@drawable/rounded_corner_box"
+    android:descendantFocusability="afterDescendants">
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner_box" >
+        android:background="@drawable/rounded_corner_box"
+        android:descendantFocusability="afterDescendants">
 
         <RelativeLayout
             android:id="@+id/titleBar"
@@ -15,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:background="@drawable/toolbar_leather"
-            android:paddingBottom="4dp" >
+            android:paddingBottom="4dp">
 
             <RelativeLayout
                 android:id="@id/innerTitle"
@@ -23,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="2dp"
                 android:paddingRight="10dp"
-                android:paddingTop="2dp" >
+                android:paddingTop="2dp">
 
                 <TextView
                     android:id="@+id/titleText"
@@ -81,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleBar"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp" >
+            android:paddingRight="10dp">
 
         </RelativeLayout>
 
@@ -90,15 +92,16 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/subTitle"
             android:layout_marginTop="5dp"
+            android:descendantFocusability="afterDescendants"
             android:measureWithLargestChild="true"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:stretchColumns="2" >
+            android:stretchColumns="2">
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:showDividers="end" >
+                android:showDividers="end">
 
                 <TextView
                     android:id="@+id/textView1"
@@ -124,12 +127,11 @@
                 android:layout_height="2dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/horizontal_divider" >
-            </TableRow>
+                android:background="@drawable/horizontal_divider"></TableRow>
 
             <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/textView3"
@@ -150,20 +152,20 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_span="2" >
-                
-	                <Spinner
-	                    android:id="@+id/spinnerStamp"
-	                    android:layout_width="wrap_content"
-	                    android:layout_height="wrap_content"
-	                    android:adjustViewBounds="true"
-	                    android:contentDescription="@string/desc_envelope_stamp"
-	                    android:maxHeight="64dp"
-	                    android:scaleType="fitCenter"
-	                    android:src="@drawable/stamp"
-	                    tools:listitem="@layout/list_item_stamp" />
+                    android:layout_span="2">
 
-				</RelativeLayout>
+                    <Spinner
+                        android:id="@+id/spinnerStamp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/desc_envelope_stamp"
+                        android:maxHeight="64dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/stamp"
+                        tools:listitem="@layout/list_item_stamp" />
+
+                </RelativeLayout>
             </TableRow>
 
             <TableRow
@@ -171,13 +173,12 @@
                 android:layout_height="2dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/horizontal_divider" >
-            </TableRow>
+                android:background="@drawable/horizontal_divider"></TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:showDividers="end" >
+                android:showDividers="end">
 
                 <CheckBox
                     android:id="@+id/checkBoxKeepOnEmpty"
@@ -195,35 +196,35 @@
                 android:layout_height="2dp"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/horizontal_divider" >
-            </TableRow>
-
+                android:background="@drawable/horizontal_divider"></TableRow>
 
 
             <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-                    <ImageButton
-                        android:id="@+id/btnPaymentAdd"
-                        style="@android:style/Widget.Button.Small"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:contentDescription="@string/desc_expense_add"
-                        android:src="@drawable/payment_add" />
-                </RelativeLayout>
-     
+                <ImageButton
+                    android:id="@+id/btnPaymentAdd"
+                    style="@android:style/Widget.Button.Small"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="@string/desc_expense_add"
+                    android:src="@drawable/payment_add" />
+            </RelativeLayout>
+
 
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:descendantFocusability="afterDescendants">
 
                 <ListView
                     android:id="@+id/listViewExpenses"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_span="4"
+                    android:descendantFocusability="afterDescendants"
                     android:orientation="vertical"
                     tools:listitem="@layout/list_item_expenses" />
             </TableRow>

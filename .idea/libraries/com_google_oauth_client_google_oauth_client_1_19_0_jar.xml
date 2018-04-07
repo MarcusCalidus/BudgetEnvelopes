@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="google-oauth-client-1.19.0">
+  <library name="com.google.oauth-client:google-oauth-client:1.19.0@jar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.19.0/d473a8962e14a707a3716637e4898bb2dd9643f2/google-oauth-client-1.19.0.jar!/" />
     </CLASSES>
